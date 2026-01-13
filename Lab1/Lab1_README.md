@@ -3,6 +3,7 @@
 ## Lab 1 – AI and ML
 
 **Completed by: Olga Durham**
+
 **St#: 040687883**
 
 ---
