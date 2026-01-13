@@ -21,11 +21,11 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 
 ### Prerequisites:
 
-• Basic understanding of cloud computing concepts, AI and ML concepts and python.
-• A computer with internet access and python jupyter notebook installed on local.
-• Windows, Mac or Linux machine
-• Web browser
-• Cloud portal access
+- Basic understanding of cloud computing concepts, AI and ML concepts and python.
+- A computer with internet access and python jupyter notebook installed on local.
+- Windows, Mac or Linux machine
+- Web browser
+- Cloud portal access
 
 [ML Tutorial: Train a no-code regression model using designer](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-designer-automobile-price-train-score?view=azureml-api-1)
 
