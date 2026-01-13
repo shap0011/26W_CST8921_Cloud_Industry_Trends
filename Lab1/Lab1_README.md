@@ -34,13 +34,13 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 1. Create an Azure Machine Learning workspace in the Canada Central region. Once created, become familiar with the interface, including how to access designer as well as create and attach compute to work with a pipeline.
    | Setting | Value |
    |:--|:--|
-   | Subscription | Azure for Students |
-   |Resource Group | aml-lab-rg|
-   |Workspace Name | aml-lab-workspace|
-   |Region Canada | Central|
-   |Storage Account | Auto-created|
-   |Key Vault | Auto-created|
-   |Application Insights | Auto-created|
+   | Subscription | `Azure for Students` |
+   |Resource Group | `aml-lab-rg`|
+   |Workspace Name | `aml-lab-workspace`|
+   |Region Canada | `Central`|
+   |Storage Account | `Auto-created`|
+   |Key Vault | `Auto-created`|
+   |Application Insights | `Auto-created`|
 
 2. Explore the Azure Machine Learning studio which is a web-based portal that can be accessed through azure machine learning workspace.
 
@@ -49,10 +49,10 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 
   **Authoring Section:** The Authoring section provides three ways to create ML models:
 
-      1. Notebooks – Code-based development using Python
-      2. Automated ML – Auto-generated models
-      3. Designer – Visual drag-and-drop pipeline builder
-      <br />
+  1. Notebooks – Code-based development using Python
+  2. Automated ML – Auto-generated models
+  3. Designer – Visual drag-and-drop pipeline builder
+     <br />
 
 - Note the Assets section, which includes Data, Jobs, and Models among other things. Assets are either consumed or created when training or scoring a model. Assets are used to train, deploy, and manage your models and can be versioned to keep track of your history.
 
