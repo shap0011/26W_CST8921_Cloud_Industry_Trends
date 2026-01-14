@@ -42,6 +42,8 @@ The goal of this lab activity is to familiarize students with the concepts, tech
    |Key Vault | `Auto-created`|
    |Application Insights | `Auto-created`|
 
+![New Azure Machine Learning workspace](./screenshots/1-create-an-azure-machine-learning-workspace.png)
+
 2. Explore the Azure Machine Learning studio which is a web-based portal that can be accessed through azure machine learning workspace.
 
 - Note the Authoring section, which includes Notebooks, Automated ML, and Designer. These are the three ways you can create your own machine learning models within the Azure Machine Learning studio.
