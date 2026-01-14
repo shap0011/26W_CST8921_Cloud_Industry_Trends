@@ -54,28 +54,26 @@ The goal of this lab activity is to familiarize students with the concepts, tech
   1. Notebooks – Code-based development using Python
   2. Automated ML – Auto-generated models
   3. Designer – Visual drag-and-drop pipeline builder
-     <br />
 
 - Note the Assets section, which includes Data, Jobs, and Models among other things. Assets are either consumed or created when training or scoring a model. Assets are used to train, deploy, and manage your models and can be versioned to keep track of your history.
+  <br/>
 
-  Assets Section: Assets represent objects used or produced during ML workflows. Data
+  **Assets Section:** Assets represent objects used or produced during ML workflows. Data
 
   1. Jobs
-
   2. Models
-
   3. Pipelines
-
   4. Environments
 
 - Note the Manage section, which includes Compute among other things. These are infrastructural resources needed to train or deploy a machine learning model.
+  <br/>
   Manage Section: The Manage section contains infrastructure resources such as:
 
   1. Compute Instances
-
   2. Compute Clusters
-
   3. Endpoints
+
+![Explore the Azure Machine Learning Studio](./screenshots/2-explore-the-azure-machine-learning-studio.png)
 
 3. Create a training pipeline – Train the model using designer
 4. Select the Regression - Automobile Price Prediction (Basic) sample
