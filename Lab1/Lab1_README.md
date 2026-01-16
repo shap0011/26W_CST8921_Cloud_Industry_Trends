@@ -121,6 +121,12 @@ _Experiment Name_
 A new experiment named `train-regression-designer-ml` was created to group and track the execution of the regression model training pipeline.
 
 7. On the Inputs & outputs page select Next without making any changes
+
+_Inputs & Outputs Page_
+![Inputs & Outputs Page](./screenshots/9-inputs-and-outputs-page.png)
+
+No pipeline-level inputs or outputs were configured, as all required data and components were already defined within the pipeline.
+
 8. On the Runtime settings page an error appears as you don´t a default compute to run the pipeline, to avoid this error create a compute instance target
 9. Create a new azure ml compute instance – select Standard_DS11_v2 from the recommended option.
 10. Create and wait for the instance to start until it’s running.
