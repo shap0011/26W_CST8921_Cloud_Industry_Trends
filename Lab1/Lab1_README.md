@@ -75,7 +75,22 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 
 ![Explore the Azure Machine Learning Studio](./screenshots/2-explore-the-azure-machine-learning-studio.png)
 
+**_Authoring Section_**
+
+The **Authoring** section in **Azure Machine Learning Studio** provides different ways to create and train machine learning models. It includes **Notebooks** for code-based development using Python, **Automated ML** for automatically generating models, and **Designer**, which allows users to build machine learning pipelines using a visual drag-and-drop interface. In this lab, the Designer tool is used to create a no-code regression model.
+
+**_Assets Section_**
+
+The **Assets** section contains all the resources that are created or used during the machine learning workflow. This includes **datasets, jobs, models, pipelines, and environments**. These assets help track experiments, manage versions, and review outputs such as trained models and execution results.
+
+**_Manage Section_**
+
+The **Manage** section is used to configure and control the infrastructure required for machine learning tasks. It includes **compute instances, compute clusters, and endpoints**. These resources provide the processing power needed to train models and deploy them for use.
+
 3. Create a training pipeline – Train the model using designer
+
+![Pipeline Draft canvas](./screenshots/3-pipeline-draft-canvas.png)
+
 4. Select the Regression - Automobile Price Prediction (Basic) sample
 5. Select Configure & Submit
 6. Create new experiment and set the name as train-regression-designer-ml
