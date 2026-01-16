@@ -50,7 +50,6 @@ The goal of this lab activity is to familiarize students with the concepts, tech
   <br />
 
   **Authoring Section:** The Authoring section provides three ways to create ML models:
-
   1. Notebooks – Code-based development using Python
   2. Automated ML – Auto-generated models
   3. Designer – Visual drag-and-drop pipeline builder
@@ -59,7 +58,6 @@ The goal of this lab activity is to familiarize students with the concepts, tech
   <br/>
 
   **Assets Section:** Assets represent objects used or produced during ML workflows. Data
-
   1. Jobs
   2. Models
   3. Pipelines
@@ -68,7 +66,6 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 - Note the Manage section, which includes Compute among other things. These are infrastructural resources needed to train or deploy a machine learning model.
   <br/>
   Manage Section: The Manage section contains infrastructure resources such as:
-
   1. Compute Instances
   2. Compute Clusters
   3. Endpoints
@@ -128,6 +125,7 @@ _Inputs & Outputs Page_
 No pipeline-level inputs or outputs were configured, as all required data and components were already defined within the pipeline.
 
 8. On the Runtime settings page an error appears as you don´t a default compute to run the pipeline, to avoid this error create a compute instance target
+
 9. Create a new azure ml compute instance – select Standard_DS11_v2 from the recommended option.
 10. Create and wait for the instance to start until it’s running.
 11. Execute your training pipeline
