@@ -105,9 +105,10 @@ By selecting individual columns, summary statistics and visualizations were auto
 
 5. Select Configure & Submit
 
-**_Configure and submit panel is opened_**
+_*Configure and submit panel is opened*_
 ![Configure and submit button](./screenshots/6-configure-and-submit-button.png)
-**_Set up pipeline panel is opened_**
+
+_*Set up pipeline panel is opened*_
 ![Set up pipeline panel is opened](./screenshots/7-set-up-pipeline-job-panel-is-opened.png)
 
 After configuring the regression training pipeline, the pipeline was submitted for execution using the Configure & Submit option in Azure Machine Learning Designer.
