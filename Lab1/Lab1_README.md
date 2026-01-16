@@ -105,15 +105,21 @@ By selecting individual columns, summary statistics and visualizations were auto
 
 5. Select Configure & Submit
 
-_*Configure and submit panel is opened*_
+_Configure and submit panel is opened_
 ![Configure and submit button](./screenshots/6-configure-and-submit-button.png)
 
-_*Set up pipeline panel is opened*_
+_Set up pipeline panel is opened_
 ![Set up pipeline panel is opened](./screenshots/7-set-up-pipeline-job-panel-is-opened.png)
 
 After configuring the regression training pipeline, the pipeline was submitted for execution using the Configure & Submit option in Azure Machine Learning Designer.
 
-6. Create new experiment and set the name as train-regression-designer-ml
+6. Create new experiment and set the name as `train-regression-designer-ml`
+
+_Experiment Name_
+![Set uo new experiment name](./screenshots/8-enter-new-experiment-name.png)
+
+A new experiment named `train-regression-designer-ml` was created to group and track the execution of the regression model training pipeline.
+
 7. On the Inputs & outputs page select Next without making any changes
 8. On the Runtime settings page an error appears as you don´t a default compute to run the pipeline, to avoid this error create a compute instance target
 9. Create a new azure ml compute instance – select Standard_DS11_v2 from the recommended option.
