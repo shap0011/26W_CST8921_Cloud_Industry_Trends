@@ -126,6 +126,11 @@ No pipeline-level inputs or outputs were configured, as all required data and co
 
 8. On the Runtime settings page an error appears as you don´t a default compute to run the pipeline, to avoid this error create a compute instance target
 
+_Runtime Settings Page_
+![Runtime Settings page](./screenshots/10-runtime-settings-page.png)
+
+On the Runtime settings page, no compute resource had been configured for the pipeline. In the current Azure Machine Learning Studio interface, this is indicated by the requirement to select a compute type rather than displaying an explicit error message. A compute instance was therefore created to allow the pipeline to run.
+
 9. Create a new azure ml compute instance – select Standard_DS11_v2 from the recommended option.
 10. Create and wait for the instance to start until it’s running.
 11. Execute your training pipeline
