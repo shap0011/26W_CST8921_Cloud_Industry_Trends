@@ -88,7 +88,9 @@ The **Manage** section is used to configure and control the infrastructure requi
    _Pipeline Draft canvas_
    ![Pipeline Draft canvas](./screenshots/3-pipeline-draft-canvas.png)
 
-4. Select the Regression - Automobile Price Prediction (Basic) sample
+As part of creating the training pipeline, the Automobile price data (Raw) dataset was connected to a Select Columns in Dataset component. The normalized-losses column was excluded due to a large number of missing values, preparing the data for further processing and model training.
+
+4. Explore the Automobile Price Dataset (Raw)
    _Dataset Preview (Table View)_
    ![Dataset Preview (Table View)](./screenshots/4-dataset-preview.png)
    _Column Statistics Panel and Data Visualization (Bar Chart)_
@@ -102,13 +104,10 @@ By selecting individual columns, summary statistics and visualizations were auto
 
 5. Select Configure & Submit
 
-_Configure and submit panel is opened_
+_Configure and submit. Set up pipeline panel is opened_
 ![Configure and submit button](./screenshots/6-configure-and-submit-button.png)
 
-_Set up pipeline panel is opened_
-![Set up pipeline panel is opened](./screenshots/7-set-up-pipeline-job-panel-is-opened.png)
-
-After configuring the regression training pipeline, the pipeline was submitted for execution using the Configure & Submit option in Azure Machine Learning Designer.
+After creating the initial training pipeline in Azure Machine Learning Designer, the **Configure & Submit** option was selected to begin the pipeline execution process.
 
 6. Create new experiment and set the name as `train-regression-designer-ml`
 
@@ -129,9 +128,13 @@ No pipeline-level inputs or outputs were configured, as all required data and co
 _Runtime Settings Page_
 ![Runtime Settings page](./screenshots/10-runtime-settings-page.png)
 
-On the Runtime settings page, no compute resource had been configured for the pipeline. In the current Azure Machine Learning Studio interface, this is indicated by the requirement to select a compute type rather than displaying an explicit error message. A compute instance was therefore created to allow the pipeline to run.
+During the Runtime settings configuration, an infrastructure-related error occurred indicating that required backend resources could not be accessed. This prevented the pipeline from continuing and highlighted the dependency on properly configured Azure resources such as storage and compute before execution.
 
 9. Create a new azure ml compute instance – select Standard_DS11_v2 from the recommended option.
+
+_Standard_DS11_v2, new Azure ML compute instance_
+![Standard_DS11_v2, new Azure ML compute instance](./screenshots/11-new-azure-ml-compute-instance.png)
+
 10. Create and wait for the instance to start until it’s running.
 11. Execute your training pipeline
 12. Use jobs tab to review your workload and see the status of the pipeline if it has executed successfully or failed.
