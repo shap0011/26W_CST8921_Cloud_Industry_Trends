@@ -157,7 +157,20 @@ _Pipeline job overview_
 ![Pipeline job overview](./screenshots/14-pipeline-job-overview-1.png)
 ![Pipeline job overview](./screenshots/15-pipeline-job-overview-2.png)
 
+The pipeline execution status was monitored in Azure Machine Learning Studio. The pipeline job completed successfully, as indicated by the Completed status displayed in the pipeline overview.
+
 13. When the job is completed, view the details of each individual component run, including the output. Explore the pipeline to understand how the model is trained.
+
+_View Scored Dataset. Price_
+![View Scored Dataset. Price](./screenshots/16-scored-dataset-price.png)
+
+_View Scored Dataset. Scored Labels_
+![View Scored Dataset. Scored labels](./screenshots/17-scored-dataset-scored-labels.png)
+
+_View Evaluation Results_
+![View Evaluation Results](./screenshots/18-evaluation-results.png)
+
+The trained regression model was evaluated using the **Evaluate Model** component. The output metrics included **Mean Absolute Error (MAE)**, **Root Mean Squared Error (RMSE)**, **Relative Absolute Error**, **Relative Squared Error**, and the **Coefficient of Determination (R²)**. In general, smaller error values indicate predictions closer to the actual prices, and an R² value closer to 1.0 indicates a better fit.
 
 14. Delete all the resourced created in the lab.
 
