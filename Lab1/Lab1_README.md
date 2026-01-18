@@ -89,6 +89,7 @@ The **Manage** section is used to configure and control the infrastructure requi
    ![Pipeline Draft canvas](./screenshots/3-full-training-pipeline.png)
 
 The pipeline was completed by adding data cleaning, splitting, training, scoring, and evaluation components.
+The final version of the training pipeline was saved and used for submission.
 
 4. Explore the Automobile Price Dataset (Raw)
    _Dataset Preview (Table View)_
