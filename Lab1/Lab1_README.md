@@ -106,7 +106,7 @@ By selecting individual columns, summary statistics and visualizations were auto
 5. Select Configure & Submit
 
 _Configure and submit. Set up pipeline panel is opened_
-![Configure and submit button](./screenshots/6-configure-and-submit-button.png)
+![Configure and submit button](./screenshots/6-configure-and-submit.png)
 
 After creating the initial training pipeline in Azure Machine Learning Designer, the **Configure & Submit** option was selected to begin the pipeline execution process.
 
