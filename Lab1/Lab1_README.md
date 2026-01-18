@@ -88,7 +88,7 @@ The **Manage** section is used to configure and control the infrastructure requi
    _Pipeline Draft canvas_
    ![Pipeline Draft canvas](./screenshots/3-full-training-pipeline.png)
 
-As part of creating the training pipeline, the Automobile price data (Raw) dataset was connected to a Select Columns in Dataset component. The normalized-losses column was excluded due to a large number of missing values, preparing the data for further processing and model training.
+The pipeline was completed by adding data cleaning, splitting, training, scoring, and evaluation components.
 
 4. Explore the Automobile Price Dataset (Raw)
    _Dataset Preview (Table View)_
