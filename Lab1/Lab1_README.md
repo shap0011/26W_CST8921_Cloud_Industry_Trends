@@ -2,7 +2,7 @@
 
 ## Lab 1 – AI and ML
 
-**Completed by: Olga Durham**<br />
+**Completed by: Olga Durham**
 **St#: 040687883**
 
 ---
@@ -19,7 +19,7 @@ Azure Machine Learning provides a data science platform to train and manage mach
 
 The goal of this lab activity is to familiarize students with the concepts, techniques and use cases of machine learning using Azure AI and ML services.
 
-### Prerequisites:
+### Prerequisites
 
 - Basic understanding of cloud computing concepts, AI and ML concepts and python.
 - A computer with internet access and python jupyter notebook installed on local.
@@ -29,25 +29,25 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 
 [ML Tutorial: Train a no-code regression model using designer](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-designer-automobile-price-train-score?view=azureml-api-1)
 
-### Lab Activity Overview:
+### Lab Activity Overview
 
 1. Create an Azure Machine Learning workspace in the Canada Central region. Once created, become familiar with the interface, including how to access designer as well as create and attach compute to work with a pipeline.
-   | Setting | Value |
-   |:--|:--|
-   | Subscription | `Azure for Students` |
-   |Resource Group | `aml-lab-rg`|
-   |Workspace Name | `aml-lab-workspace`|
-   |Region Canada | `Central`|
-   |Storage Account | `Auto-created`|
-   |Key Vault | `Auto-created`|
-   |Application Insights | `Auto-created`|
+
+   | Setting             | Value                |
+   |:--------------------|:---------------------|
+   | Subscription        | `Azure for Students` |
+   |Resource Group       | `aml-lab-rg`         |
+   |Workspace Name       | `aml-lab-workspace`  |
+   |Region Canada        | `Central`            |
+   |Storage Account      | `Auto-created`       |
+   |Key Vault            | `Auto-created`       |
+   |Application Insights | `Auto-created`       |
 
 ![New Azure Machine Learning workspace](./screenshots/1-create-an-azure-machine-learning-workspace.png)
 
 2. Explore the Azure Machine Learning studio which is a web-based portal that can be accessed through azure machine learning workspace.
 
 - Note the Authoring section, which includes Notebooks, Automated ML, and Designer. These are the three ways you can create your own machine learning models within the Azure Machine Learning studio.
-  <br />
 
   **Authoring Section:** The Authoring section provides three ways to create ML models:
   1. Notebooks – Code-based development using Python
@@ -55,7 +55,6 @@ The goal of this lab activity is to familiarize students with the concepts, tech
   3. Designer – Visual drag-and-drop pipeline builder
 
 - Note the Assets section, which includes Data, Jobs, and Models among other things. Assets are either consumed or created when training or scoring a model. Assets are used to train, deploy, and manage your models and can be versioned to keep track of your history.
-  <br/>
 
   **Assets Section:** Assets represent objects used or produced during ML workflows. Data
   1. Jobs
@@ -64,7 +63,6 @@ The goal of this lab activity is to familiarize students with the concepts, tech
   4. Environments
 
 - Note the Manage section, which includes Compute among other things. These are infrastructural resources needed to train or deploy a machine learning model.
-  <br/>
   Manage Section: The Manage section contains infrastructure resources such as:
   1. Compute Instances
   2. Compute Clusters
@@ -113,7 +111,7 @@ After creating the initial training pipeline in Azure Machine Learning Designer,
 6. Create new experiment and set the name as `train-regression-designer-ml`
 
 _Experiment Name_
-![Set uo new experiment name](./screenshots/7-enter-new-experiment-name.png)
+![Set up new experiment name](./screenshots/7-enter-new-experiment-name.png)
 
 A new experiment named `train-regression-designer-ml` was created to organize and track the execution of the regression training pipeline.
 
@@ -179,8 +177,10 @@ _Deleted resource group aml-lab-rg_
 
 After completing the lab, all Azure resources created during the activity were deleted by removing the associated resource group. This ensured that no unnecessary cloud resources remained active.
 
-15. Document the entire process and include screenshots in a lab report.
+### Reflection
 
-### Important Notes:
+This lab provided hands-on experience with Azure Machine Learning Designer and demonstrated how machine learning workflows can be created without writing code. By exploring data, building a regression pipeline, configuring compute resources, and evaluating model performance, I gained a better understanding of how cloud-based machine learning systems operate in practice. The lab also highlighted the importance of properly managing cloud resources and troubleshooting common platform issues.
 
-For grading prepare a lab report with your findings and analysis and share that in an Assignments tab in Brightspace.
+### Conclusion
+
+This lab demonstrated how Azure Machine Learning Designer can be used to build, train, and evaluate a regression model without writing code. Through data exploration, preprocessing, model training, and evaluation, the lab provided a practical introduction to cloud-based machine learning workflows.
