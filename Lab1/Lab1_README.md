@@ -129,9 +129,7 @@ No pipeline-level inputs or outputs were configured, as all required data and co
 _Runtime Settings Error_
 ![Runtime Settings Error](./screenshots/9-runtime-settings-error.png)
 
-On the Runtime settings page, an error was displayed indicating that no default compute was selected to run the pipeline. This highlighted the requirement to configure a compute resource before executing the machine learning pipeline.
-
-Due to a temporary interface refresh, the pipeline draft was reloaded before submission. The pipeline components were re-added following the same configuration steps.
+On the Runtime settings page, an error was displayed indicating that no default compute was selected to run the pipeline.
 
 9. Create a new azure ml compute instance – select Standard_DS11_v2 from the recommended option.
 
@@ -139,10 +137,30 @@ _Standard_DS11_v2, new Azure ML compute instance_
 ![Standard_DS11_v2, new Azure ML compute instance](./screenshots/10-new-azure-ml-compute-instance.png)
 
 10. Create and wait for the instance to start until it’s running.
+
+_Runtime Setting Final_
+![Runtime Setting Final](./screenshots/11-runtime-setting-with-running-instance.png)
+
 11. Execute your training pipeline
+
+_Pipeline Job Running Notification_
+![Pipeline job running](./screenshots/12-pipeline-job-running.png)
+
+The Azure Machine Learning compute instance automatically entered a stopped state when idle. The instance was restarted prior to pipeline submission and successfully used to execute the training pipeline.
+
+_Pipeline job completed_
+![Pipeline job completed](./screenshots/13-pipeline-job-completed.png)
+
 12. Use jobs tab to review your workload and see the status of the pipeline if it has executed successfully or failed.
+
+_Pipeline job overview_
+![Pipeline job overview](./screenshots/14-pipeline-job-overview-1.png)
+![Pipeline job overview](./screenshots/15-pipeline-job-overview-2.png)
+
 13. When the job is completed, view the details of each individual component run, including the output. Explore the pipeline to understand how the model is trained.
+
 14. Delete all the resourced created in the lab.
+
 15. Document the entire process and include screenshots in a lab report.
 
 ### Important Notes:
