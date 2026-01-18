@@ -114,19 +114,19 @@ After creating the initial training pipeline in Azure Machine Learning Designer,
 _Experiment Name_
 ![Set uo new experiment name](./screenshots/7-enter-new-experiment-name.png)
 
-A new experiment named `train-regression-designer-ml` was created to group and track the execution of the regression model training pipeline.
+A new experiment named `train-regression-designer-ml` was created to organize and track the execution of the regression training pipeline.
 
 7. On the Inputs & outputs page select Next without making any changes
 
 _Inputs & Outputs Page_
 ![Inputs & Outputs Page](./screenshots/8-inputs-and-outputs-page.png)
 
-No pipeline-level inputs or outputs were configured, as all required data and components were already defined within the pipeline.
+No pipeline-level inputs or outputs were configured, as all required data and components were defined directly within the Designer pipeline.
 
 8. On the Runtime settings page an error appears as you don´t a default compute to run the pipeline, to avoid this error create a compute instance target
 
-_Runtime Settings Page_
-![Runtime Settings page](./screenshots/9-runtime-settings-page.png)
+_Runtime Settings Error_
+![Runtime Settings Error](./screenshots/9-runtime-settings-error.png)
 
 During the Runtime settings configuration, an infrastructure-related error occurred indicating that required backend resources could not be accessed. This prevented the pipeline from continuing and highlighted the dependency on properly configured Azure resources such as storage and compute before execution.
 
