@@ -86,7 +86,7 @@ The **Manage** section is used to configure and control the infrastructure requi
 
 3. Create a training pipeline – Train the model using designer
    _Pipeline Draft canvas_
-   ![Pipeline Draft canvas](./screenshots/3-pipeline-draft-canvas.png)
+   ![Pipeline Draft canvas](./screenshots/3-full-training-pipeline.png)
 
 As part of creating the training pipeline, the Automobile price data (Raw) dataset was connected to a Select Columns in Dataset component. The normalized-losses column was excluded due to a large number of missing values, preparing the data for further processing and model training.
 
@@ -128,7 +128,9 @@ No pipeline-level inputs or outputs were configured, as all required data and co
 _Runtime Settings Error_
 ![Runtime Settings Error](./screenshots/9-runtime-settings-error.png)
 
-During the Runtime settings configuration, an infrastructure-related error occurred indicating that required backend resources could not be accessed. This prevented the pipeline from continuing and highlighted the dependency on properly configured Azure resources such as storage and compute before execution.
+On the Runtime settings page, an error was displayed indicating that no default compute was selected to run the pipeline. This highlighted the requirement to configure a compute resource before executing the machine learning pipeline.
+
+Due to a temporary interface refresh, the pipeline draft was reloaded before submission. The pipeline components were re-added following the same configuration steps.
 
 9. Create a new azure ml compute instance – select Standard_DS11_v2 from the recommended option.
 
