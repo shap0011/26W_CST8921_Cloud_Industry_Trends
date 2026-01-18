@@ -172,7 +172,12 @@ _View Evaluation Results_
 
 The trained regression model was evaluated using the **Evaluate Model** component. The output metrics included **Mean Absolute Error (MAE)**, **Root Mean Squared Error (RMSE)**, **Relative Absolute Error**, **Relative Squared Error**, and the **Coefficient of Determination (R²)**. In general, smaller error values indicate predictions closer to the actual prices, and an R² value closer to 1.0 indicates a better fit.
 
-14. Delete all the resourced created in the lab.
+14. Delete all the resources created in the lab.
+
+_Deleted resource group aml-lab-rg_
+![Deleted resource group aml-lab-rg](./screenshots/19-deleted-resource-group.png)
+
+After completing the lab, all Azure resources created during the activity were deleted by removing the associated resource group. This ensured that no unnecessary cloud resources remained active.
 
 15. Document the entire process and include screenshots in a lab report.
 
