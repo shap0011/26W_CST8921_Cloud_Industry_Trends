@@ -88,9 +88,9 @@ Steps:
     - Service: **Microsoft.Storage**
 4. Add **public-subnet** (no service endpoint)
 
-![alt text](image.png)
+![alt text](./screenshots/image.png)
 
-![alt text](image-1.png)
+![alt text](./screenshots/image-1.png)
 
 ---
 
