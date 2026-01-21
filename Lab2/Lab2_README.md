@@ -103,8 +103,8 @@ Steps:
 
 ![alt text](./screenshots/image-1.png)
 
-*xx*
-![xx](./screenshots/xx)
+*Private and Public subnets created*
+![Private and Public subnets created](./screenshots/4_subnets_private_public.png)
 
 ---
 
