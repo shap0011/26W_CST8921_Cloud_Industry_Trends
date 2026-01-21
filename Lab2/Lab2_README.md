@@ -45,10 +45,18 @@ Steps:
     - **Allowed locations:** `Canada Central`
 7. Review + Create
 
+*Creating policy assignment notification*
+![Creating policy assignment notification](./screenshots/1_creating_policy_assignment_succeeded.png)
+
 Validation:
 
 - Attempt to create a resource in a different region (e.g., East US)
 - Confirm deployment `fails`
+
+*Deployment validation fails*
+![New Resource Group created](./screenshots/2_deployment_validation_east_us_region.png)
+
+A resource group was created successfully since Azure Policies do not restrict resource group locations. To validate the policy, a virtual network was attempted to be deployed in the East US region. The deployment failed due to the “Allowed locations” policy, confirming correct policy enforcement.
 
 ---
 
@@ -65,6 +73,9 @@ Steps:
     - Address space: `10.0.0.0/16`
 4. Do **not** add subnets yet
 5. Review + Create
+
+*xx*
+![xx](./screenshots/xx)
 
 ---
 
