@@ -74,8 +74,8 @@ Steps:
 4. Do **not** add subnets yet
 5. Review + Create
 
-*xx*
-![xx](./screenshots/xx)
+*VNET created Canada Central*
+![VNET created Canada Central](./screenshots/3_vnet_created_canada_central.png)
 
 ---
 
@@ -102,6 +102,9 @@ Steps:
 ![alt text](./screenshots/image.png)
 
 ![alt text](./screenshots/image-1.png)
+
+*xx*
+![xx](./screenshots/xx)
 
 ---
 
