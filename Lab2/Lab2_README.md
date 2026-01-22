@@ -118,6 +118,14 @@ Steps:
 2. Create NSG in **Canada Central**
 3. Associate NSG to **private-subnet**
 
+*Create the network security group*
+![Create the network security group](./screenshots/5_nsg_created.png)
+
+*Associate NSG with private-subnet*
+![Associate NSG with private-subnet](./screenshots/6_nsg_associated_private_subnet.png)
+
+A Network Security Group was created in the Canada Central region and associated with the private subnet. This NSG will be used to enforce outbound and inbound traffic rules to enhance network security.
+
 ---
 
 #### Task 5: Configure NSG Rules (Private Subnet)
