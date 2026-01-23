@@ -295,6 +295,14 @@ To avoid unexpected costs:
   - Virtual Network
   - Azure Policy assignment
 
+*Cleanup RG deleted*
+![Cleanup RG deleted](./screenshots/17_cleanup_rg_deleted.png)
+
+*RG deleted*
+![RG deleted](./screenshots/18_rg_deleted.png)
+
+The resource group deletion was initially blocked by a Recovery Services Vault (Azure Backup). The vault contained a soft-deleted Azure Storage container (stcloudsecurityshap0011). Using Azure Cloud Shell (PowerShell), the storage container was unregistered, the vault was deleted, and then the resource group was successfully deleted.
+
 ---
 
 #### 8. Deliverables & Grading
