@@ -207,8 +207,8 @@ Deploy two Windows VMs:
 |vm-private  | private-subnet  |
 |vm-public   | public-subnet   |
 
-    - Enable **Azure Bastion**
-    - Use same credentials for both VMs
+- Enable **Azure Bastion**
+- Use same credentials for both VMs
 
 📸 Screenshot required: VM overview pages
 
