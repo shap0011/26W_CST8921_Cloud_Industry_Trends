@@ -235,6 +235,27 @@ Two Windows virtual machines were deployed in separate subnets. The private VM w
 3. Run the following command:
 
 ```
+$key = @{
+     String = "<storage-account-key>"
+}
+$acctKey = ConvertTo-SecureString @key -AsPlainText -Force
+
+$cred = @{
+     ArgumentList = "Azure\<storage-account-name>", $acctKey
+}
+$credential = New-Object System.Management.Automation.PSCredential @cred
+
+$map = @{
+     Name = "Z"
+     PSProvider = "FileSystem"
+     Root = "\\<storage-account-name>.file.core.windows.net\file-share"
+     Credential = $credential
+}
+New-PSDrive @map
+
+```
+
+```
 <<<<<<< HEAD
 # NOTE: Access key removed from report to avoid exposing secrets.
 # Use an environment variable or retrieve the key securely from Azure Portal.
