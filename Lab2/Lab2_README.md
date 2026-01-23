@@ -149,6 +149,11 @@ Outbound Rule – Deny Internet Access
 - Action: **Deny**
 - Priority: `200`
 
+*Outbound security rules private-subnet*
+![Outbound security rules private-subnet](./screenshots/7_outbond_rules_private_subnet.png)
+
+Outbound NSG rules were configured to allow traffic to Azure Storage using service tags while denying all other internet-bound traffic. This ensures that resources in the private subnet can securely access storage without unrestricted internet access.
+
 ---
 
 #### Task 6: Configure NSG for Public Subnet (RDP Access)
