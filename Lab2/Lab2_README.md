@@ -235,27 +235,27 @@ Two Windows virtual machines were deployed in separate subnets. The private VM w
 3. Run the following command:
 
 ```
-$key = @{
-     String = "<storage-account-key>"
-}
-$acctKey = ConvertTo-SecureString @key -AsPlainText -Force
+<<<<<<< HEAD
+# NOTE: Access key removed from report to avoid exposing secrets.
+# Use an environment variable or retrieve the key securely from Azure Portal.
+=======
+# Key intentionally NOT stored in repo.
+$storageAccountName = "stcloudsecurityshap0011"
+$shareName = "fileshare1"
+$storageKey = "<REDACTED>"   # obtain from Azure Portal when running the lab
 
-$cred = @{
-     ArgumentList = "Azure\<storage-account-name>", $acctKey
-}
-$credential = New-Object System.Management.Automation.PSCredential @cred
+$secureKey = ConvertTo-SecureString $storageKey -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential ("Azure\$storageAccountName", $secureKey)
 
-$map = @{
-     Name = "Z"
-     PSProvider = "FileSystem"
-     Root = "\\<storage-account-name>.file.core.windows.net\file-share"
-     Credential = $credential
-}
-New-PSDrive @map
 ```
 
 **Expected Result:**
 Azure file share successfully mapped to drive **Z:**
+
+*VM private storage access allowed*
+![VM private storage access allowed](./screenshots/15_vm_private_storage_access_allowed.png)
+
+From the private virtual machine, the Azure File Share was successfully mapped to drive Z:. This confirms that storage access is allowed from the private subnet as intended by the network security configuration.
 
 ---
 
