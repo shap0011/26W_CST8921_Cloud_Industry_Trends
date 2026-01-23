@@ -305,22 +305,12 @@ The resource group deletion was initially blocked by a Recovery Services Vault (
 
 ---
 
-#### 8. Deliverables & Grading
+### Summary
 
-Lab Report Requirements:
-
-- Step-by-step explanation
-- Screenshots for each task
-- Security analysis and observations
-- Validation results
-- Cleanup confirmation
-
-Submission:
-
-- Upload report to **Brightspace → Assignments**
+This lab demonstrated how cloud security controls can be implemented and validated using Microsoft Azure. Azure Policy was used to restrict resource deployment to an approved region, network security groups controlled traffic flow, and storage account networking rules ensured that sensitive data was accessible only from trusted subnets.
 
 ---
 
-#### Important Notes
+### Conclusion
 
-For grading prepare a lab report with your findings and analysis and share that in an Assignments tab in Brightspace.
+The lab showed how Azure security features such as policies, network segmentation, service endpoints, and access controls help protect cloud resources. By validating both allowed and denied access scenarios and properly cleaning up all resources, this lab reinforced best practices for securing cloud environments.
