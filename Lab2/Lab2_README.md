@@ -178,7 +178,8 @@ A Network Security Group was created for the public subnet and configured to all
 
 #### Task 7: Create a Storage Account with File Share
 
-Purpose: Secure storage access to only approved subnets.
+**Purpose:** Secure storage access to only approved subnets.
+To ensure Azure Storage is accessible only from the private subnet, enforcing network-level security.
 
 Steps:
 
@@ -189,6 +190,11 @@ Steps:
     - Network access: Enabled from selected networks
     - Allow access only from private-subnet
 4. Create Azure File Share
+
+*Storage Account with File Share*
+![Storage Account with File Share](./screenshots/10_storage_account_with_file_share.png)
+
+The storage account was configured with Standard performance and optimized for Azure Files to support secure file share access from the private subnet.
 
 ---
 
