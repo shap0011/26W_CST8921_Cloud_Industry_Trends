@@ -200,6 +200,8 @@ The storage account was configured with Standard performance and optimized for A
 
 #### Task 8: Deploy Virtual Machines
 
+**Purpose:** To deploy two Windows virtual machines in different subnets and enable secure access using Azure Bastion.
+
 Deploy two Windows VMs:
 
 |VM Name     | Subnet          |
@@ -210,7 +212,19 @@ Deploy two Windows VMs:
 - Enable **Azure Bastion**
 - Use same credentials for both VMs
 
-📸 Screenshot required: VM overview pages
+*VM private*
+![VM private](./screenshots/11_vm_private_overview.png)
+
+*VM public*
+![VM public](./screenshots/12_vm_public_overview.png)
+
+*Bastion*
+![Bastion](./screenshots/13_bastion_cloud_security.png)
+
+*Subnets*
+![Subnets](./screenshots/14_vnet_cloud_security_subnets.png)
+
+Two Windows virtual machines were deployed in separate subnets. The private VM was placed in the private subnet without a public IP, while the public VM was deployed in the public subnet. Azure Bastion was enabled to provide secure remote access to both virtual machines. A dedicated AzureBastionSubnet was created as required by Azure to isolate Bastion infrastructure and avoid exposing RDP directly to the internet.
 
 ---
 
