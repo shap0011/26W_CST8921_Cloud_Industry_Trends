@@ -160,9 +160,19 @@ Outbound NSG rules were configured to allow traffic to Azure Storage using servi
 
 Inbound Rule – Allow RDP
 
+**Purpose:** To allow remote administration (RDP) access to a virtual machine deployed in the public subnet.
+
 - Source: `Any`
 - Port: `3389`
 - Protocol: `TCP`
+
+*Create NSG public-subnet*
+![Create NSG public-subnet](./screenshots/8_nsg_public_created.png)
+
+*NSG public-subnet associated*
+![Create NSG public-subnet](./screenshots/9_nsg_public_associated.png)
+
+A Network Security Group was created for the public subnet and configured to allow inbound RDP traffic on port 3389. This NSG was associated with the public subnet to enable remote access to public-facing virtual machines.
 
 ---
 
