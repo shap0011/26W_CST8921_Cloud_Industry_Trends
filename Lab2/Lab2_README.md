@@ -267,6 +267,11 @@ From the private virtual machine, the Azure File Share was successfully mapped t
 **Expected Result:**
 Access denied error
 
+*VM public storage access denied*
+![VM public storage access denied](./screenshots/16_vm_public_access_denied.png)
+
+When attempting to access the Azure File Share from the public virtual machine, the connection was denied as expected. This confirms that the storage account’s network rules correctly restrict access to the private subnet only, preventing unauthorized access from public-facing resources. This demonstrates effective network-level security enforcement in Azure.
+
 ---
 
 #### 6. Validation Summary
