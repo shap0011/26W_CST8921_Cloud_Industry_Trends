@@ -30,7 +30,7 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 
 #### Task 1: Create an Azure Policy – Allowed Locations
 
-*Purpose:* Ensure resources can only be deployed in an approved region.
+**Purpose:** Ensure resources can only be deployed in an approved region.
 
 Steps:
 
@@ -62,7 +62,7 @@ A resource group was created successfully since Azure Policies do not restrict r
 
 #### Task 2: Create a Virtual Network (Canada Central)
 
-**Purpose:** Establish a secure network boundary.
+**Purpose:** To establish a secure network boundary that will later host private and public subnets.
 
 Steps:
 
@@ -77,11 +77,13 @@ Steps:
 *VNET created Canada Central*
 ![VNET created Canada Central](./screenshots/3_vnet_created_canada_central.png)
 
+A virtual network was created in the Canada Central region with an address space of 10.0.0.0/16. No subnets were added at this stage to allow controlled subnet creation and security configuration in later tasks.
+
 ---
 
 #### Task 3: Create Subnets & Enable Storage Service Endpoint
 
-**Purpose:** Ensure storage traffic stays within Azure’s backbone network.
+**Purpose:** To separate private and public network traffic and ensure storage traffic stays within Azure’s backbone network using a Service Endpoint.
 
 Subnets to Create:
 
@@ -106,11 +108,13 @@ Steps:
 *Private and Public subnets created*
 ![Private and Public subnets created](./screenshots/4_subnets_private_public.png)
 
+Two subnets were created within the virtual network. The private-subnet (10.0.1.0/24) was configured with a Microsoft.Storage service endpoint to ensure secure storage access over Azure’s backbone network. The public-subnet (10.0.2.0/24) was created without service endpoints to allow internet-facing resources.
+
 ---
 
 #### Task 4: Create Network Security Group (NSG)
 
-**Purpose:** Control inbound and outbound network traffic.
+**Purpose:** To control inbound and outbound traffic at the subnet level, specifically protecting the private subnet.
 
 Steps:
 
@@ -131,6 +135,8 @@ A Network Security Group was created in the Canada Central region and associated
 #### Task 5: Configure NSG Rules (Private Subnet)
 
 Outbound Rule – Allow Azure Storage
+
+**Purpose:** To allow secure access to Azure Storage while blocking outbound internet access from the private subnet.
 
 - Destination: **Service Tag**
 - Service Tag: **Storage**
