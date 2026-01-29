@@ -191,7 +191,7 @@ cosmicworks --endpoint <cosmos-endpoint> --key <cosmos-key> --datasets product
     | Development environment                       | Develop in portal             |
     | Select a template                             | Azure Cosmos DB trigger |
     | New Function                                  | `ItemsListener`                    |
-    | Cosmos DB account connection                  | Select New \| Select Azure Cosmos DB  <br>Account \| Select the Azure Cosmos DB  <br>account you created earlier                                             |
+    | Cosmos DB account connection                  | Select New \| Select Azure Cosmos DB  Account \| Select the Azure Cosmos DB  account you created earlier                                             |
     | Database name                                 | `cosmicworks`                                             |
     | Collection name                               | `products`                                                |
     | Collection name for leases                    | `productslease`                      |
