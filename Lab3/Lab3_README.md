@@ -46,7 +46,11 @@ In this lab, you will use the change feed processor functionality in the .NET SD
 1. Start Visual Studio Code.
 2. Open the command palette and run Git: Clone to clone the `https://github.com/microsoftlearning/dp-420-cosmos-db-dev` GitHub repository in a local folder of your choice.
 3. Once the repository has been cloned, open the local folder you selected in Visual Studio Code.
-4. Create a azure cosmos db for nosql account. Choose capacity mode as serverless.
+4. Create an Azure Cosmos DB for noSQL account. Choose capacity mode as serverless.
+
+    *Cosmos DB Overview*
+    ![Cosmos DB Overview](./screenshots/Lab3_CosmosDB_Overview.png)
+
 5. Review keys pane in cosmosdb account and notice the connection details and credentials to connect the account from sdk.
 6. In data explorer, expand new container and select new database.
 7. In new database popup, enter “cosmicworks” value in database id.
