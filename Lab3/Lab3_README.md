@@ -213,8 +213,10 @@ Each change was logged as a `Detected Operation`, validating that the Cosmos DB 
 *DataExplorer productslease items*<br>
 ![DataExplorer productslease items](./screenshots/Lab3_DataExplorer_productslease_items.png)
 
-When running the Cosmos DB trigger function created in VS Code, the runtime used a lease container to track change feed progress.
-The VS Code template created/used a lease container named `leases`, which stored lease documents automatically.
+After inserting new items into the `products` container and running the change feed listener/function, lease documents appeared in the `productslease` container.  
+These lease documents are used to track change feed processing state (checkpointing) and ensure changes are processed reliably.
+
+The lease documents were created/updated when the change feed consumer started processing changes.
 
 *Lease documents created in the productslease container*<br>
 ![Lease documents created in the productslease container](./screenshots/Lab3_Step32_productlease_items.png)
