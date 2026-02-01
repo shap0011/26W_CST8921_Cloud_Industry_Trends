@@ -167,6 +167,14 @@ dotnet run
 dotnet tool install cosmicworks --global --version 1.*
 ```
 
+The lab instructions specify installing the `cosmicworks` command-line tool using version `1.*`.
+During execution, the latest available version of the tool (cosmicworks 2.0.3) was installed instead, as older 1.x versions are no longer available on NuGet.
+
+The installation completed successfully; however, this version of the tool is not fully compatible with Azure Cosmos DB Serverless accounts.
+
+*Terminal showing the tool installation*
+![Terminal showing the tool installation](./screenshots/Lab3_dotnet_tool_installed.png)
+
 28.	Run `cosmicworks` to seed your `Azure Cosmos DB` account with the following command-line options:
 
 ```
@@ -175,7 +183,13 @@ cosmicworks --endpoint <cosmos-endpoint> --key <cosmos-key> --datasets product
 
 29.	Wait for the `cosmicworks` command to finish populating the account with a database, container, and items.
 
+    *Add three new items*
+    ![Add three new items](./screenshots/Lab3_Added_three_new_items.png)    
+
 30.	Observe the terminal output from your `.NET` application. The terminal outputs a `Detected Operation` message for each change that was sent to it using the change feed.
+
+    *Terminal showing the detected operations*
+    ![Terminal showing the detected operations](./screenshots/Lab3_Listener_Terminal_showing_the_detected_operations.png)    
 
 31.	Close both integrated terminals.
 
