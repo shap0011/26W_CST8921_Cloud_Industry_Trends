@@ -54,6 +54,10 @@ In this lab, you will use the change feed processor functionality in the .NET SD
 5. Review keys pane in cosmosdb account and notice the connection details and credentials to connect the account from sdk.
 6. In data explorer, expand new container and select new database.
 7. In new database popup, enter “cosmicworks” value in database id.
+
+    *Cosmos DB Database cosmicworks*
+    ![Cosmos DB Database cosmicworks](./screenshots/Lab3_CosmosDB_Overview.png)
+
 8. In data explorer pane, select new container and enter following values:
 
     | Setting        | Value                           |
