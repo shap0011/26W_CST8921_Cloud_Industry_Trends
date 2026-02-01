@@ -231,7 +231,13 @@ Each change was logged as a `Detected Operation`, validating that the Cosmos DB 
     | Region           | *Choose any available region*                       |
     | Storage account  | *Create a new storage account*                      |
 
+The lab mentions .NET 6, but the Azure Portal only offered .NET 8 (LTS) because .NET 6 is out of support. The Function App was created using .NET 8 (LTS).
+
 3. Wait for the deployment task to complete before continuing with this task.
+
+*Function App created*<br>
+![Function App created](./screenshots/Lab3_Create_Function_App.png)
+
 4. Go to the newly created Azure Functions account resource and navigate to the Functions pane.
 5. In the Functions pane, select + Create.
 6. In the Create function popup, create a new function with the following settings, leaving all remaining settings to their default values:
