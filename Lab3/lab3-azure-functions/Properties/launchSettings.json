@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "lab3_azure_functions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7082",
+      "launchBrowser": false
+    }
+  }
+}

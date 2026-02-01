@@ -238,7 +238,14 @@ The lab mentions .NET 6, but the Azure Portal only offered .NET 8 (LTS) because 
 *Function App created*<br>
 ![Function App created](./screenshots/Lab3_Create_Function_App.png)
 
-4. Go to the newly created Azure Functions account resource and navigate to the Functions pane.
+4. Create the Cosmos DB Trigger Function.
+
+Due to updates in the Azure Portal and Student subscription limitations, in-portal function creation was not available.  
+Therefore, the Cosmos DB–triggered function (`ItemsListener`) was created using Visual Studio Code, which is the recommended approach for .NET 8 Azure Functions.
+
+*ItemsListener.cs*<br>
+![ItemsListener.cs](./screenshots/Lab3_ItemsListener.png)
+
 5. In the Functions pane, select + Create.
 6. In the Create function popup, create a new function with the following settings, leaving all remaining settings to their default values:
 
@@ -254,6 +261,9 @@ The lab mentions .NET 6, but the Azure Portal only offered .NET 8 (LTS) because 
     | Create lease collection if it does not exist  | No                     |
 
 7. Implement function code in .net
+
+The function logic was implemented in `ItemsListener.cs`, matching the lab’s change feed behavior by logging the number of modified items and their IDs.
+
 8. In the `ItemsListener` | Function pane, navigate to the Code + Test pane.
 9. In the editor for the `run.csx` script, delete the contents of the editor area.
 10. Use the following code
@@ -276,23 +286,49 @@ public static void Run(IReadOnlyList<Document> input, ILogger log)
 }
 ```
 
-11. Expand the Logs section to connect to the streaming logs for the current function.
+11. Run and Test the Azure Function
+
+The Azure Function was executed locally using Azure Functions Core Tools (`func start`).  
+This replaces the portal-based Code + Test and Logs steps described in the lab, which are no longer available for .NET 8 Function Apps.
+
+*Azure Function running locally using Azure Functions Core Tools*
+![Azure Function running locally using Azure Functions Core Tools](./screenshots/Lab3_FunctionHost_func_start.png)
+
 12. Save the current function code.
 13. Observe the result of the C# code compilation. You should expect to see a Compilation succeeded message at the end of the log output.
 
 14.	Maximize the log section to expand the output window to fill the maximum available space.
 15.	You will use another tool to generate items in your `Azure Cosmos DB` for `NoSQL` container. Once you generate the items, you will return to this browser window to observe the output. Do not close the browser window prematurely.
 
+The lab instructions indicate using an external command-line tool to generate items in the Azure Cosmos DB container. 
+However, due to compatibility issues between the cosmicworks CLI and Azure Cosmos DB Serverless accounts, 
+sample data was added manually using Azure Cosmos DB Data Explorer
+
+*Added a new item*
+![Added a new item](./screenshots/Lab3_Add_a-newitem.png)
+
 16.	Seed your `Azure Cosmos DB` for `NoSQL` account with sample data
+
+The manually added item successfully seeded the `products` container and was used to trigger the Cosmos DB Change Feed.
+
 17.	You will use a command-line utility that creates a `cosmicworks` database and a products container. The tool will then create a set of items that you will observe using the change feed processor running in your terminal window.
 18.	Start `Visual Studio Code`.
 
+Visual Studio Code was opened to run and test the Azure Cosmos DB–triggered Azure Function.
+
 19.	In `Visual Studio Code`, open the `Terminal` menu and then select `New Terminal` to open a new terminal instance.
+
+A new terminal was opened in Visual Studio Code to run the Azure Function locally.
+
 20.	Install the `[cosmicworks][nuget.org/packages/cosmicworks]` command-line tool for global use on your machine.
 
 ```
 dotnet tool install cosmicworks --global --version 1.*
 ```
+
+The lab instructions require installing the `cosmicworks` command-line tool. 
+However, the current versions of the tool are not compatible with Azure Cosmos DB Serverless accounts. 
+Therefore, manual data insertion using Azure Cosmos DB Data Explorer was used instead.
 
 21.	Run `cosmicworks` to seed your `Azure Cosmos DB` account with the following command-line options:
 
@@ -306,7 +342,12 @@ dotnet tool install cosmicworks --global --version 1.*
 cosmicworks --endpoint <cosmos-endpoint> --key <cosmos-key> --datasets product
 ```
 
+Sample data was added manually to the `products` container using Azure Cosmos DB Data Explorer, 
+as demonstrated in Step 15.
+
 22.	Wait for the `cosmicworks` command to finish populating the account with a database, container, and items.
+
+After the item was added, the Cosmos DB Change Feed processed the update automatically.
 
 23.	Close the integrated terminal.
 
