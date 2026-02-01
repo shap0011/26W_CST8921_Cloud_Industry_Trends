@@ -386,8 +386,3 @@ By integrating Cosmos DB with a .NET application and an Azure Function, changes 
 
 The lab also highlighted differences between older lab instructions and current Azure tooling, particularly regarding 
 .NET 8 (LTS), serverless Cosmos DB accounts, and Visual Studio Code–based function development.
-
-
-
-
-
