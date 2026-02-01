@@ -181,15 +181,27 @@ The installation completed successfully; however, this version of the tool is no
 cosmicworks --endpoint <cosmos-endpoint> --key <cosmos-key> --datasets product
 ```
 
-29.	Wait for the `cosmicworks` command to finish populating the account with a database, container, and items.
+When using a Serverless Azure Cosmos DB account, the cosmicworks CLI (v2.x) attempts to read or modify throughput offers, which are not supported in serverless mode. This resulted in a 400 BadRequest error related to unsupported offer operations.
 
-    *Add three new items*
-    ![Add three new items](./screenshots/Lab3_Added_three_new_items.png)    
+As a workaround, sample items were added manually using Azure Cosmos DB Data Explorer, which still triggers the Change Feed as expected.
+
+29.	Manual data insertion (Serverless-compatible workaround)
+
+To continue the lab and validate the Cosmos DB Change Feed functionality, three sample items were manually added to the `products` container using the Azure Portal Data Explorer.
+
+This approach is fully compatible with serverless Cosmos DB accounts and still generates change feed events.
+
+*Add three new items*
+![Add three new items](./screenshots/Lab3_Added_three_new_items.png)    
 
 30.	Observe the terminal output from your `.NET` application. The terminal outputs a `Detected Operation` message for each change that was sent to it using the change feed.
 
-    *Terminal showing the detected operations*
-    ![Terminal showing the detected operations](./screenshots/Lab3_Listener_Terminal_showing_the_detected_operations.png)    
+While the Change Feed Processor was running using `dotnet run`, each inserted item triggered a change feed event. The terminal output confirmed that the processor successfully detected and processed the new items.
+
+Each change was logged as a `Detected Operation`, validating that the Cosmos DB Change Feed was functioning correctly.
+
+*Terminal showing the detected operations*
+![Terminal showing the detected operations](./screenshots/Lab3_Listener_Terminal_showing_the_detected_operations.png)    
 
 31.	Close both integrated terminals.
 
