@@ -146,6 +146,10 @@ await processor.StopAsync();
 *Note : `ChangeHandler ()` will delegate to receive the changes within a `ChangeFeedProcessor` execution.*
 
 20. Save the `script.cs` file.
+
+    *Update script.cs code file*
+    ![Update script.cs code file](./screenshots/Lab3_Update_script_cs_code_file.png)    
+
 21. In `Visual Studio Code`, open the context menu for the 13-change-feed folder and then select `Open` in `Integrated Terminal` to open a new terminal instance.
 22.	Build and run the project using the dotnet run command:
 
