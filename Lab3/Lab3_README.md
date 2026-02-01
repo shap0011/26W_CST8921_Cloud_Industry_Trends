@@ -67,7 +67,7 @@ In this lab, you will use the change feed processor functionality in the .NET SD
     | Partition key  | */categoryId*                   |
 
     *Cosmos DB Container products*
-    ![Cosmos DB Container products](./screenshots/Lab3_CosmosDB_Container_products.png.png)    
+    ![Cosmos DB Container products](./screenshots/Lab3_CosmosDB_Container_products.png)    
 
 9. Create another container with the following values:
 
@@ -76,6 +76,9 @@ In this lab, you will use the change feed processor functionality in the .NET SD
     | Database id    | *Use existing* \| *cosmicworks* |
     | Container id   | *productslease*                 |
     | Partition key  | */partitionKey*                 |
+
+    *Cosmos DB Container products & productslease*
+    ![Cosmos DB Container products & productslease](./screenshots/Lab3_CosmosDB_Containers_products_productslease.png)    
 
 10. Return to visual studio.
 11. In the Explorer pane, browse to the 13-change-feed folder.
