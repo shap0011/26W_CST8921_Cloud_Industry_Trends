@@ -200,7 +200,7 @@ While the Change Feed Processor was running using `dotnet run`, each inserted it
 
 Each change was logged as a `Detected Operation`, validating that the Cosmos DB Change Feed was functioning correctly.
 
-*Terminal showing the detected operations*
+*Terminal showing the detected operations*<br>
 ![Terminal showing the detected operations](./screenshots/Lab3_Listener_Terminal_showing_the_detected_operations.png)    
 
 31.	Close both integrated terminals.
