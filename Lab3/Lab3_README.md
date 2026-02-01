@@ -367,13 +367,25 @@ After the item was added, the Cosmos DB Change Feed processed the update automat
 
 27.	Close your web browser window or tab.
 
+The Azure Portal browser tab was closed after verifying that the Azure Function and Cosmos DB Change Feed executed successfully.
+
 28.	Delete all the resources after completing the lab and document all the steps in the lab report with the screenshots.
+
+*Resource Group Deleted*
+![Resource Group Deleted](./screenshots/Lab3_Resource_group_Deleted.png)
+
+After completing the lab and verifying all required functionality, all Azure resources created for this lab were deleted. 
+This included the Azure Cosmos DB account, Azure Function App, and associated storage resources.
 
 ---
 
-### Important Notes
+## Findings and Analysis
 
-For grading prepare a lab report with your findings and analysis and share that in an Assignments tab in Brightspace.
+This lab demonstrated how Azure Cosmos DB Change Feed can be used to process data changes in real time. 
+By integrating Cosmos DB with a .NET application and an Azure Function, changes to data were detected and processed automatically.
+
+The lab also highlighted differences between older lab instructions and current Azure tooling, particularly regarding 
+.NET 8 (LTS), serverless Cosmos DB accounts, and Visual Studio Code–based function development.
 
 
 
