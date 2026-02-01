@@ -56,7 +56,7 @@ In this lab, you will use the change feed processor functionality in the .NET SD
 7. In new database popup, enter “cosmicworks” value in database id.
 
     *Cosmos DB Database cosmicworks*
-    ![Cosmos DB Database cosmicworks](./screenshots/Lab3_CosmosDB_Overview.png)
+    ![Cosmos DB Database cosmicworks](./screenshots/Lab3_CosmosDB_Database_cosmicworks.png)
 
 8. In data explorer pane, select new container and enter following values:
 
