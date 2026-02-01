@@ -213,6 +213,12 @@ Each change was logged as a `Detected Operation`, validating that the Cosmos DB 
 *DataExplorer productslease items*<br>
 ![DataExplorer productslease items](./screenshots/Lab3_DataExplorer_productslease_items.png)
 
+When running the Cosmos DB trigger function created in VS Code, the runtime used a lease container to track change feed progress.
+The VS Code template created/used a lease container named `leases`, which stored lease documents automatically.
+
+*Lease documents created in the productslease container*<br>
+![Lease documents created in the productslease container](./screenshots/Lab3_Step32_productlease_items.png)
+
 33.	Close `Visual Studio Code`.
 
 #### Create an Azure Function app and Azure Cosmos DB-triggered function
