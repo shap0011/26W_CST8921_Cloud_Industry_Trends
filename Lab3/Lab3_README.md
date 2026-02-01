@@ -66,6 +66,9 @@ In this lab, you will use the change feed processor functionality in the .NET SD
     | Container id   | *products*                      |
     | Partition key  | */categoryId*                   |
 
+    *Cosmos DB Container products*
+    ![Cosmos DB Container products](./screenshots/Lab3_CosmosDB_Container_products.png.png)    
+
 9. Create another container with the following values:
 
     | Setting        | Value                           |
