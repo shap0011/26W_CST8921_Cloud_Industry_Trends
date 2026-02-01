@@ -201,11 +201,17 @@ While the Change Feed Processor was running using `dotnet run`, each inserted it
 Each change was logged as a `Detected Operation`, validating that the Cosmos DB Change Feed was functioning correctly.
 
 *Terminal showing the detected operations*<br>
-![Terminal showing the detected operations](./screenshots/Lab3_Listener_Terminal_showing_the_detected_operations.png)    
+![Terminal showing the detected operations](./screenshots/Lab3_Listener_Terminal_showing_the_detected_operations.png)
 
 31.	Close both integrated terminals.
 
-32.	Verify the changes in product and `productlease` containers.
+32.	Verify the changes in `products` and `productlease` containers.
+
+*DataExplorer products items*<br>
+![DataExplorer products items](./screenshots/Lab3_DataExplorer_products_items.png)
+
+*DataExplorer productslease items*<br>
+![DataExplorer productslease items](./screenshots/Lab3_DataExplorer_productslease_items.png)
 
 33.	Close `Visual Studio Code`.
 
