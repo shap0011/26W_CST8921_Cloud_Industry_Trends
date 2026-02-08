@@ -58,6 +58,10 @@ In this lab, you will explore raw data stored in Azure Data Lake Storage, transf
 ##### Step 2: Explore Data using Serverless SQL
 
 1. Open Azure Synapse Studio
+
+*Figure 5: Synapse workspace created*
+![Synapse workspace created](./screenshots/5-synapse-workspace-created.png)
+
 2. Navigate to Develop → SQL script
 3. Run the following query to explore Parquet files directly from the Data Lake:
 
