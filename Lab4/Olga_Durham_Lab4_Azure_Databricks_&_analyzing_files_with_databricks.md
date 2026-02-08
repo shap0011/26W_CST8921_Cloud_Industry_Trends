@@ -46,6 +46,15 @@ In this lab, you will explore raw data stored in Azure Data Lake Storage, transf
     - `raw/orders/orders.parquet`
     - `raw/order_events/order_events.parquet`
 
+*Figure 2: File customers.parquet added*
+![File customers.parquet added](./screenshots/2-file-customers-added.png)
+
+*Figure 3: File customers.parquet added*
+![File orders.parquet added](./screenshots/3-file-orders-added.png)
+
+*Figure 4: File customers.parquet added*
+![File order_events.parquet added](./screenshots/4-file-order_events-added.png)
+
 ##### Step 2: Explore Data using Serverless SQL
 
 1. Open Azure Synapse Studio
