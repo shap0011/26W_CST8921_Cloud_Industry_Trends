@@ -199,9 +199,7 @@ To “inspect the data” properly, we should load each dataset separately (this
 ```
 df_customers = spark.read.parquet("abfss://raw@cst8921lab4olga.dfs.core.windows.net/customers/customers.parquet")
 
-```
-
-```
+df_customer.printSchema()
 df_customers.show(5)
 
 ```
@@ -242,7 +240,7 @@ df_orders.show(5)
 
 ```
 
-*Figure 18: Inspect the orders data*
+*Figure 18: Inspect the orders data*\
 ![Inspect the orders data](./screenshots/18-inspect-orders-data.png)
 
 **What this does:**
