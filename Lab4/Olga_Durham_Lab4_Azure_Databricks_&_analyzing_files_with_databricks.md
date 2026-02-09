@@ -180,7 +180,7 @@ df.printSchema()
 
 ```
 
-*Figure 15: Inspect the data; print schema*
+*Figure 15: Inspect the data; print schema*\
 ![Inspect the data; print schema](./screenshots/15-inspect-data-print-schema.png)
 
 ```
@@ -189,7 +189,7 @@ df.show(5)
 
 ```
 
-*Figure 16: Inspect the data; show five rows*
+*Figure 16: Inspect the data; show five rows*\
 ![Inspect the data; show five rows](./screenshots/16-inspect-data-show-five-rows.png)
 
 I loaded multiple Parquet files with different schemas using a wildcard. Spark inferred a schema (it picked the customers schema), and when it reads rows from orders/events, those customer columns don’t exist → they show up as NULL.
