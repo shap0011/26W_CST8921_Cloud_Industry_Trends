@@ -164,17 +164,136 @@ WHERE YEAR(
 4. Load the data:
 
 ```
-df = spark.read.parquet( "abfss://raw@<storage-account>.dfs.core.windows.net/*.parquet”)
+df = spark.read.parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/*/*.parquet"
+)
 
 ```
+
+*Figure 14: Load the data*
+![Load the data](./screenshots/14-load-data.png)
 
 5. Inspect the data: 
 
 ```
-df.printSchema() 
+df.printSchema()
+
+```
+
+*Figure 15: Inspect the data; print schema*
+![Inspect the data; print schema](./screenshots/15-inspect-data-print-schema.png)
+
+```
+
 df.show(5)
 
 ```
+
+*Figure 16: Inspect the data; show five rows*
+![Inspect the data; show five rows](./screenshots/16-inspect-data-show-five-rows.png)
+
+I loaded multiple Parquet files with different schemas using a wildcard. Spark inferred a schema (it picked the customers schema), and when it reads rows from orders/events, those customer columns don’t exist → they show up as NULL.
+
+To “inspect the data” properly, we should load each dataset separately (this also makes Part 2 easier).
+
+```
+df_customers = spark.read.parquet("abfss://raw@cst8921lab4olga.dfs.core.windows.net/customers/customers.parquet")
+
+```
+
+```
+df_customers.show(5)
+
+```
+
+*Figure 17: Inspect the customers data*
+![Inspect the customers data](./screenshots/17-inspect-customers-data.png)
+
+```
+df_orders = spark.read.parquet("abfss://raw@cst8921lab4olga.dfs.core.windows.net/orders/orders.parquet")
+
+```
+
+This code gave an error: `Illegal Parquet type: INT64 (TIMESTAMP(NANOS,false))`
+
+That means the orders.parquet file stores order_date as a nanosecond timestamp, and the Spark version behind the Synapse pool can’t read TIMESTAMP(NANOS) directly.
+
+To fix it we have to tell Spark to read that column as INT64, then we’ll convert it ourselves (which also matches the earlier Serverless SQL work).
+
+**Read with binaryAsString/schema override (safe approach)**
+
+```
+from pyspark.sql.types import StructType, StructField, StringType, LongType, DoubleType
+
+orders_schema = StructType([
+    StructField("order_id", StringType(), True),
+    StructField("customer_id", StringType(), True),
+    StructField("order_date", LongType(), True),        # force as long (epoch nanos)
+    StructField("order_amount", DoubleType(), True),
+    StructField("order_status", StringType(), True),
+])
+
+df_orders = spark.read.schema(orders_schema).parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/orders/orders.parquet"
+)
+
+df_orders.printSchema()
+df_orders.show(5)
+
+```
+
+*Figure 18: Inspect the orders data*
+![Inspect the orders data](./screenshots/18-inspect-orders-data.png)
+
+**What this does:**
+- Forces Spark to **not interpret** the Parquet nanos timestamp as a Spark timestamp
+- Reads it as a plain number (`long`) so we can convert it safely
+
+**Turn nanos into a real timestamp**
+
+```
+from pyspark.sql.functions import col, from_unixtime, to_timestamp
+
+df_orders = df_orders.withColumn(
+    "order_datetime",
+    to_timestamp(from_unixtime((col("order_date") / 1_000_000_000).cast("long")))
+)
+
+df_orders.select("order_id", "customer_id", "order_date", "order_datetime", "order_amount", "order_status").show(5, truncate=False)
+
+```
+
+*Figure 19: Inspect the orders data*
+![Inspect the orders data](./screenshots/19-inspect-orders-data.png)
+
+```
+from pyspark.sql.types import StructType, StructField, StringType, LongType
+
+events_schema = StructType([
+    StructField("event_id", StringType(), True),
+    StructField("order_id", StringType(), True),
+    StructField("event_time", LongType(), True),   # epoch nanos
+    StructField("event_type", StringType(), True),
+])
+
+df_events = spark.read.schema(events_schema).parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/order_events/order_events.parquet"
+)
+
+from pyspark.sql.functions import col, from_unixtime, to_timestamp
+
+df_events = df_events.withColumn(
+    "event_datetime",
+    to_timestamp(from_unixtime((col("event_time") / 1_000_000_000).cast("long")))
+)
+
+df_events.printSchema()
+df_events.select("event_id","order_id","event_time","event_datetime","event_type").show(5, truncate=False)
+
+```
+
+*Figure 20: Inspect the orders data*
+![Inspect the orders data](./screenshots/20-inspect-order_events-data.png)
 
 ---
 
