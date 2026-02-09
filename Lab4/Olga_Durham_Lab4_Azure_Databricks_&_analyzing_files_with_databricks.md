@@ -74,6 +74,8 @@ FROM OPENROWSET(
 
 ```
 
+4. Observe: Column names, Data types, Sample records
+
 *Figure 6: Explore Parquet files directly from the Data Lake*
 ![Explore Parquet files directly from the Data Lake](./screenshots/6-explore-parquet-files-directly-from-the-data-lake.png)
 
@@ -86,8 +88,69 @@ FROM OPENROWSET(
 *Figure 9: Explore Order Events Parquet file directly from the Data Lake*
 ![Explore Order Events Parquet file directly from the Data Lake](./screenshots/9-explore-order_events-parquet.png)
 
-4. Observe: Column names, Data types, Sample records
 5. Try adding a filter: `WHERE Year > 2022`
+
+```
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://cst8921lab4olga.dfs.core.windows.net/raw/customers/*.parquet',
+    FORMAT = 'PARQUET'
+) AS cgr
+WHERE YEAR(signup_date) > 2022;
+
+```
+
+*Figure 10: Explore Customers Parquet file directly from the Data Lake where year > 2022*
+![Explore Customers Parquet file directly from the Data Lake where year > 2022](./screenshots/10-explore-customers-parquet-file-year-gr-2022.png)
+
+```
+SELECT TOP 10 *,
+       DATEADD(
+           SECOND,
+           CAST(order_date / 1000000000 AS BIGINT),
+           '1970-01-01'
+       ) AS order_datetime
+FROM OPENROWSET(
+    BULK 'https://cst8921lab4olga.dfs.core.windows.net/raw/orders/*.parquet',
+    FORMAT = 'PARQUET'
+) AS ogr2022
+WHERE YEAR(
+    DATEADD(
+        SECOND,
+        CAST(order_date / 1000000000 AS BIGINT),
+        '1970-01-01'
+    )
+) > 2022;
+
+```
+
+*Figure 11: Explore Orders Parquet file directly from the Data Lake where year > 2022*
+![Explore Orders Parquet file directly from the Data Lake where year > 2022](./screenshots/12-explore-order-events-parquet-file-year-gr-2022.png)
+
+```
+SELECT TOP 10 *,
+       DATEADD(
+           SECOND,
+           CAST(event_time / 1000000000 AS BIGINT),
+           '1970-01-01'
+       ) AS event_datetime
+FROM OPENROWSET(
+    BULK 'https://cst8921lab4olga.dfs.core.windows.net/raw/order_events/*.parquet',
+    FORMAT = 'PARQUET'
+) AS e
+WHERE YEAR(
+    DATEADD(
+        SECOND,
+        CAST(event_time / 1000000000 AS BIGINT),
+        '1970-01-01'
+    )
+) > 2022;
+
+```
+
+*Figure 12: Explore Order Events Parquet file directly from the Data Lake where year > 2022*
+![Explore Order Events Parquet file directly from the Data Lake where year > 2022](./screenshots/12-explore-order-events-parquet-file-year-gr-2022.png)
+
 
 ##### Step 3: Explore Data using Spark Notebook
 
