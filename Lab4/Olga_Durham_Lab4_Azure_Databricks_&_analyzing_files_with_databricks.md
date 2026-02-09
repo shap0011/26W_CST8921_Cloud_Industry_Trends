@@ -358,20 +358,66 @@ print("Events - after :", df_events_dedup.count())
 
 ##### Step 5: Fix Data Types 
 
-1. Convert timestamp columns to proper datetime format:
+Recreate `df_orders` (After Synapse Studio was stopped for a few hours)
 
 ```
-from pyspark.sql.functions import to_timestamp
-df_clean = df_dedup.withColumn(  "event_time",  to_timestamp("event_time"))
+from pyspark.sql.types import StructType, StructField, StringType, LongType, DoubleType
+
+orders_schema = StructType([
+    StructField("order_id", StringType(), True),
+    StructField("customer_id", StringType(), True),
+    StructField("order_date", LongType(), True),   # epoch nanoseconds
+    StructField("order_amount", DoubleType(), True),
+    StructField("order_status", StringType(), True),
+])
+
+df_orders = spark.read.schema(orders_schema).parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/orders/orders.parquet"
+)
 
 ```
+
+Recreate `df_orders_dedup`
+
+```
+df_orders_dedup = df_orders.dropDuplicates()
+
+```
+
+Sanity check
+
+```
+print(df_orders.count(), df_orders_dedup.count())
+
+```
+
+*Figure 23: Recreate df_orders and df_orders_dedup after the Synapse Studio being offline*\
+![Recreate df_orders and df_orders_dedup after the Synapse Studio being offline](./screenshots/23-recreate-df_orders-and-df_orders_dedup.png)
+
+1. Convert order_date (nanos) → proper timestamp:
+
+```
+from pyspark.sql.functions import col, from_unixtime, to_timestamp
+
+df_orders_clean = df_orders_dedup.withColumn(
+    "order_date",
+    to_timestamp(from_unixtime((col("order_date") / 1_000_000_000).cast("long")))
+)
+
+```
+
+This overwrites order_date into a true Spark timestamp.
 
 2. Verify schema:
 
 ```
-df_clean.printSchema()
+df_orders_clean.printSchema()
+df_orders_clean.show(5, truncate=False)
 
 ```
+
+*Figure 24: Overwrite order_date into a true Spark timestamp & verify schema*\
+![Overwrite order_date into a true Spark timestamp & verify schema](./screenshots/24-overwrite-order_date-into-a-true-spark-timestamp-and-verify-schema.png)
 
 ##### Step 6: Create Derived Columns 
 
