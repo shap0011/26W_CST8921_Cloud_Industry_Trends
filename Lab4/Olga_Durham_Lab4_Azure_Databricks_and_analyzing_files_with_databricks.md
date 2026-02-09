@@ -665,10 +665,52 @@ df_events_transformed.groupBy("Year").count().orderBy("Year").show()
 
 Orders by Year
 
+Recreate `df_orders_transformed`
+
+```
+from pyspark.sql.types import StructType, StructField, StringType, LongType, DoubleType
+from pyspark.sql.functions import col, from_unixtime, to_timestamp, year, month
+
+# 1) Read orders with safe schema (order_date stored as epoch nanoseconds)
+orders_schema = StructType([
+    StructField("order_id", StringType(), True),
+    StructField("customer_id", StringType(), True),
+    StructField("order_date", LongType(), True),   # epoch nanos
+    StructField("order_amount", DoubleType(), True),
+    StructField("order_status", StringType(), True),
+])
+
+df_orders = spark.read.schema(orders_schema).parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/orders/orders.parquet"
+)
+
+# 2) Deduplicate
+df_orders_dedup = df_orders.dropDuplicates()
+
+# 3) Fix data type (nanos -> timestamp)
+df_orders_clean = df_orders_dedup.withColumn(
+    "order_date",
+    to_timestamp(from_unixtime((col("order_date") / 1_000_000_000).cast("long")))
+)
+
+# 4) Derived columns
+df_orders_transformed = (
+    df_orders_clean
+    .withColumn("Year", year("order_date"))
+    .withColumn("Month", month("order_date"))
+)
+
+```
+
+Query Orders by Year
+
 ```
 df_orders_transformed.groupBy("Year").count().orderBy("Year").show()
 
 ```
+
+*Figure 32: Spark notebook aggregation showing total order events grouped by year*\
+![Spark notebook aggregation showing total order events grouped by year](./screenshots/31-spark-events-by-year.png)
 
 
 ##### Step 10: Clean all the resources created during this lab
