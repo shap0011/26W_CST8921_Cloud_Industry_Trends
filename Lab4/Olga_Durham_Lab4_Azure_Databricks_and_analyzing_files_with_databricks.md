@@ -617,10 +617,59 @@ Query the table
 
 1. Notebook Visualization
 
-```
-df_transformed.groupBy("Year").count().show()
+Rebuild the Events pipeline
 
 ```
+from pyspark.sql.types import StructType, StructField, StringType, LongType
+from pyspark.sql.functions import col, from_unixtime, to_timestamp, year, month
+
+# 1. Read order_events with safe schema
+events_schema = StructType([
+    StructField("event_id", StringType(), True),
+    StructField("order_id", StringType(), True),
+    StructField("event_time", LongType(), True),   # epoch nanoseconds
+    StructField("event_type", StringType(), True),
+])
+
+df_events = spark.read.schema(events_schema).parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/order_events/order_events.parquet"
+)
+
+# 2. Deduplicate
+df_events_dedup = df_events.dropDuplicates()
+
+# 3. Fix data type (nanos -> timestamp)
+df_events_clean = df_events_dedup.withColumn(
+    "event_time",
+    to_timestamp(from_unixtime((col("event_time") / 1_000_000_000).cast("long")))
+)
+
+# 4. Create derived columns
+df_events_transformed = (
+    df_events_clean
+    .withColumn("Year", year("event_time"))
+    .withColumn("Month", month("event_time"))
+)
+
+```
+
+Events by Year
+
+```
+df_events_transformed.groupBy("Year").count().orderBy("Year").show()
+
+```
+
+*Figure 31: Spark notebook aggregation showing total order events grouped by year*\
+![Spark notebook aggregation showing total order events grouped by year](./screenshots/31-spark-events-by-year.png)
+
+Orders by Year
+
+```
+df_orders_transformed.groupBy("Year").count().orderBy("Year").show()
+
+```
+
 
 ##### Step 10: Clean all the resources created during this lab
 
