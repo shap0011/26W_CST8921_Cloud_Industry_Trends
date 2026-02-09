@@ -306,6 +306,47 @@ df_dedup = df.dropDuplicates()
 
 ```
 
+**Load Orders + Events**
+
+```
+from pyspark.sql.types import StructType, StructField, StringType, LongType, DoubleType
+
+orders_schema = StructType([
+    StructField("order_id", StringType(), True),
+    StructField("customer_id", StringType(), True),
+    StructField("order_date", LongType(), True),        # epoch nanos
+    StructField("order_amount", DoubleType(), True),
+    StructField("order_status", StringType(), True),
+])
+
+events_schema = StructType([
+    StructField("event_id", StringType(), True),
+    StructField("order_id", StringType(), True),
+    StructField("event_time", LongType(), True),        # epoch nanos
+    StructField("event_type", StringType(), True),
+])
+
+df_orders = spark.read.schema(orders_schema).parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/orders/orders.parquet"
+)
+
+df_events = spark.read.schema(events_schema).parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/order_events/order_events.parquet"
+)
+
+```
+
+**Remove duplicates**
+
+```
+df_orders_dedup = df_orders.dropDuplicates()
+df_events_dedup = df_events.dropDuplicates()
+
+```
+
+*Figure 21: Remove duplicates*
+![Remove duplicates](./screenshots/21-remove-duplicates.png)
+
 2. Verify record count:
 
 ```
