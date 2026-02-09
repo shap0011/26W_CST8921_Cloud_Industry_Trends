@@ -539,24 +539,20 @@ df_events_transformed.write.mode("overwrite").parquet(
 
 ##### Step 8: Create External Table using SQL
 
-1. Open Synapse SQL Script
-2. Create an external table over refined data:
+1. Open a Serverless SQL script
+2. Query refined orders directly (validation)
 
 ```
-CREATE EXTERNAL TABLE refined_events
-WITH (
-    LOCATION = 'refined/',
-    DATA_SOURCE = MyDataLake,
-    FILE_FORMAT = ParquetFormat
-)
-AS
-SELECT *
+SELECT TOP 10 *
 FROM OPENROWSET(
-    BULK 'refined/*.parquet',
+    BULK 'https://cst8921lab4olga.dfs.core.windows.net/refined/orders/*.parquet',
     FORMAT = 'PARQUET'
-) AS data;
+) AS o;
 
 ```
+
+*Figure 29: Query refined orders directly (validation)*\
+![Query refined orders directly (validation)](./screenshots/29-query-refined-orders-directly-validation.png)
 
 3. Query the table:
 
