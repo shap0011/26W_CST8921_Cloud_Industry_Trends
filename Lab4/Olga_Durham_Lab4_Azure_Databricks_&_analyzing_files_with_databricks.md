@@ -157,6 +157,10 @@ WHERE YEAR(
 1. In Synapse Studio, go to Develop → Notebooks
 2. Create a new Spark Notebook
 3. Select Python as the language
+
+*Figure 13: Created Apache Spark pool*
+![Created Apache Spark pool](./screenshots/13-created-apache-spark-pool.png)
+
 4. Load the data:
 
 ```
