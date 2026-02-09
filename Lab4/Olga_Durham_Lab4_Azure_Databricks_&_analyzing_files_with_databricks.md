@@ -66,9 +66,25 @@ In this lab, you will explore raw data stored in Azure Data Lake Storage, transf
 3. Run the following query to explore Parquet files directly from the Data Lake:
 
 ```
-SELECT TOP 100 * FROM OPENROWSET( BULK 'https://<storage-account>.dfs.core.windows.net/raw/*.parquet', FORMAT = 'PARQUET ) AS rows;
+SELECT TOP 100 *
+FROM OPENROWSET(
+    BULK 'https://cst8921lab4olga.dfs.core.windows.net/raw/*/*.parquet',
+    FORMAT = 'PARQUET'
+) AS rows;
 
 ```
+
+*Figure 6: Explore Parquet files directly from the Data Lake*
+![Explore Parquet files directly from the Data Lake](./screenshots/6-explore-parquet-files-directly-from-the-data-lake.png)
+
+*Figure 7: Explore Customers Parquet file directly from the Data Lake*
+![Explore Customers Parquet files directly from the Data Lake](./screenshots/7-explore-customers-parquet-file.png)
+
+*Figure 8: Explore Orders Parquet file directly from the Data Lake*
+![Explore Orders Parquet file directly from the Data Lake](./screenshots/8-explore-orders-parquet-file.png)
+
+*Figure 9: Explore Order Events Parquet file directly from the Data Lake*
+![Explore Order Events Parquet file directly from the Data Lake](./screenshots/9-explore-order_events-parquet.png)
 
 4. Observe: Column names, Data types, Sample records
 5. Try adding a filter: `WHERE Year > 2022`
