@@ -301,11 +301,6 @@ df_events.select("event_id","order_id","event_time","event_datetime","event_type
 
 1. Remove Duplicates : Remove duplicate records:
 
-```
-df_dedup = df.dropDuplicates()
-
-```
-
 **Load Orders + Events**
 
 ```
@@ -344,16 +339,22 @@ df_events_dedup = df_events.dropDuplicates()
 
 ```
 
-*Figure 21: Remove duplicates*
+*Figure 21: Remove duplicates*\
 ![Remove duplicates](./screenshots/21-remove-duplicates.png)
 
-2. Verify record count:
+2. Verify record count (before vs after):
 
 ```
-print(df.count())
-print(df_dedup.count())
+print("Orders - before:", df_orders.count())
+print("Orders - after :", df_orders_dedup.count())
+
+print("Events - before:", df_events.count())
+print("Events - after :", df_events_dedup.count())
 
 ```
+
+*Figure 22: Verify record count*\
+![Verify record count](./screenshots/22-verify-record-count.png)
 
 ##### Step 5: Fix Data Types 
 
