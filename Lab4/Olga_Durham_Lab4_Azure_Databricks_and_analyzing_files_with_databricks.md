@@ -554,15 +554,64 @@ FROM OPENROWSET(
 *Figure 29: Query refined orders directly (validation)*\
 ![Query refined orders directly (validation)](./screenshots/29-query-refined-orders-directly-validation.png)
 
-3. Query the table:
+3. Create SQL “external table” objects (Views):
+
+Create a user database
+
+```
+CREATE DATABASE Lab4DB;
+
+```
+
+Switch to the new database
+
+```
+USE Lab4DB;
+
+```
+
+Create a view for refined orders
+
+```
+CREATE VIEW refined_orders AS
+SELECT *
+FROM OPENROWSET(
+    BULK 'https://cst8921lab4olga.dfs.core.windows.net/refined/orders/*.parquet',
+    FORMAT = 'PARQUET'
+) AS o;
+
+```
+
+```
+SELECT TOP 10 * 
+FROM refined_orders;
+
+```
+
+Create a view for refined order events
+
+```
+CREATE VIEW refined_order_events AS
+SELECT *
+FROM OPENROWSET(
+    BULK 'https://cst8921lab4olga.dfs.core.windows.net/refined/order_events/*.parquet',
+    FORMAT = 'PARQUET'
+) AS e;
+
+```
 
 ```
 SELECT Year, COUNT(*) AS total_events
-FROM refined_events
+FROM refined_order_events
 GROUP BY Year
 ORDER BY Year;
 
 ```
+
+Query the table
+
+*Figure 30: Serverless SQL query showing total order events grouped by year*\
+![Serverless SQL query showing total order events grouped by year](./screenshots/30-query-the-table-total_events-from-refined_order_events.png)
 
 ##### Step 9: Analyze & Visualize Data 
 
