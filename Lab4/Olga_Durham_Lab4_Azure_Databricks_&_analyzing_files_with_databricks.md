@@ -472,13 +472,66 @@ df_orders_transformed.select(
 
 ##### Step 7: Write Transformed Data to Refined Zone
 
-1. Create a new container named: refined
-2. Write transformed data:
+1. Create a new container named: `refined`
+
+*Figure 26: Create storage container `refined`*\
+![Create derived columns](./screenshots/26-create-storage-container-refined.png)
+
+2. Write orders to refined zone:
 
 ```
-df_transformed.write.mode("overwrite").parquet( "abfss://refined@<storage-account>.dfs.core.windows.net/")
+df_orders_transformed.write.mode("overwrite").parquet(
+    "abfss://refined@cst8921lab4olga.dfs.core.windows.net/orders"
+)
 
 ```
+
+*Figure 27: Write Orders to refined zone*\
+![Write Orders to refined zone](./screenshots/27-write-orders-to-refined-zone.png)
+
+3. Write Events to refined zone
+
+Create transformed events dataframe
+
+```
+from pyspark.sql.types import StructType, StructField, StringType, LongType
+from pyspark.sql.functions import col, from_unixtime, to_timestamp, year, month
+
+events_schema = StructType([
+    StructField("event_id", StringType(), True),
+    StructField("order_id", StringType(), True),
+    StructField("event_time", LongType(), True),
+    StructField("event_type", StringType(), True),
+])
+
+df_events = spark.read.schema(events_schema).parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/order_events/order_events.parquet"
+)
+
+df_events_transformed = (
+    df_events
+    .dropDuplicates()
+    .withColumn(
+        "event_time",
+        to_timestamp(from_unixtime((col("event_time") / 1_000_000_000).cast("long")))
+    )
+    .withColumn("Year", year("event_time"))
+    .withColumn("Month", month("event_time"))
+)
+
+```
+
+Write events to refined zone
+
+```
+df_events_transformed.write.mode("overwrite").parquet(
+    "abfss://refined@cst8921lab4olga.dfs.core.windows.net/order_events"
+)
+
+```
+
+*Figure 28: Write Events to refined zone*\
+![Write Events to refined zone](./screenshots/28-write-events-to-refined-zone.png)
 
 ---
 
