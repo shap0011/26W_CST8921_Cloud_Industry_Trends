@@ -421,24 +421,54 @@ df_orders_clean.show(5, truncate=False)
 
 ##### Step 6: Create Derived Columns 
 
-1.	Add Year and Month columns:
+1.	Rebuild the Orders pipeline in one clean sequence
 
 ```
-from pyspark.sql.functions import year, month
-df_transformed = (
-    df_clean
-    .withColumn("Year", year("event_time"))
-    .withColumn("Month", month("event_time"))
+from pyspark.sql.types import StructType, StructField, StringType, LongType, DoubleType
+from pyspark.sql.functions import col, from_unixtime, to_timestamp, year, month
+
+# 1. Read orders with safe schema
+orders_schema = StructType([
+    StructField("order_id", StringType(), True),
+    StructField("customer_id", StringType(), True),
+    StructField("order_date", LongType(), True),   # epoch nanoseconds
+    StructField("order_amount", DoubleType(), True),
+    StructField("order_status", StringType(), True),
+])
+
+df_orders = spark.read.schema(orders_schema).parquet(
+    "abfss://raw@cst8921lab4olga.dfs.core.windows.net/orders/orders.parquet"
+)
+
+# 2. Deduplicate
+df_orders_dedup = df_orders.dropDuplicates()
+
+# 3. Fix data type (nanos -> timestamp)
+df_orders_clean = df_orders_dedup.withColumn(
+    "order_date",
+    to_timestamp(from_unixtime((col("order_date") / 1_000_000_000).cast("long")))
+)
+
+# 4. Create derived columns
+df_orders_transformed = (
+    df_orders_clean
+    .withColumn("Year", year("order_date"))
+    .withColumn("Month", month("order_date"))
 )
 
 ```
 
-2. Preview results:
+2. Verify
 
 ```
-df_transformed.show(5)
+df_orders_transformed.select(
+    "order_id", "order_date", "Year", "Month", "order_amount", "order_status"
+).show(5, truncate=False)
 
 ```
+
+*Figure 25: Create derived columns*\
+![Create derived columns](./screenshots/25-create-derived-columns.png)
 
 ##### Step 7: Write Transformed Data to Refined Zone
 
