@@ -756,6 +756,18 @@ Suggested student exercises:
 
 ---
 
+### Findings
+
+During this lab, raw e-commerce data stored in Azure Data Lake Storage Gen2 was successfully explored, transformed, and analyzed using Azure Synapse Analytics and Apache Spark. Serverless SQL queries confirmed that Parquet files could be queried directly from the data lake without requiring prior ingestion, demonstrating the flexibility of schema-on-read in cloud-based analytics.
+
+While exploring the raw datasets, it was observed that the orders and order_events files contained duplicate records, which aligned with the dataset documentation. Apache Spark was used to remove these duplicates efficiently. Additionally, timestamp fields in the orders and order events datasets were stored as Unix epoch values in nanoseconds, requiring explicit conversion to proper timestamp data types before meaningful time-based analysis could be performed.
+
+After cleaning and transforming the data, new derived columns (**Year** and **Month**) were added to support analytical queries. The transformed datasets were written to a refined zone in Azure Data Lake Storage, following a common data lake architecture pattern that separates raw and curated data.
+
+Using Synapse Serverless SQL, refined data was successfully queried through external SQL views, enabling aggregation and analysis without copying data into a dedicated database. Aggregation results showed how order events were distributed across multiple years, demonstrating the ability to analyze large datasets efficiently using cloud-native tools.
+
+---
+
 ### Important Notes
 
 For grading prepare a lab report with your findings and analysis and share that in an Assignments tab in Brightspace.
