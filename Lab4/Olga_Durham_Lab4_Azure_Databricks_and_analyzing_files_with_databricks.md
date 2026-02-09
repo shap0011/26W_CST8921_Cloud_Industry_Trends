@@ -709,11 +709,17 @@ df_orders_transformed.groupBy("Year").count().orderBy("Year").show()
 
 ```
 
-*Figure 32: Spark notebook aggregation showing total order events grouped by year*\
-![Spark notebook aggregation showing total order events grouped by year](./screenshots/31-spark-events-by-year.png)
+*Figure 32: Spark notebook aggregation showing total orders grouped by year*\
+![Spark notebook aggregation showing total orders grouped by year](./screenshots/32-spark-orders-by-year.png)
 
 
 ##### Step 10: Clean all the resources created during this lab
+
+After completing the lab activities, all Azure resources created for this lab were cleaned up to avoid unnecessary costs. The resource group containing the Azure Synapse workspace, Apache Spark pool, and Azure Data Lake Storage Gen2 account was deleted. This ensured that no active compute or storage resources remained after the lab was completed.
+
+*Figure 33: Deleting Azure resources created for Lab 4 to prevent ongoing charges*\
+![Deleting Azure resources created for Lab 4 to prevent ongoing charges](./screenshots/33-resource-group-deleted.png)
+
 
 ---
 
