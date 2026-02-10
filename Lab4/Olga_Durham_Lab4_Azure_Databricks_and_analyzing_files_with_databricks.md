@@ -59,6 +59,8 @@ Suggested student exercises:
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 ### Lab Activity Overview
 
 #### Part 1
@@ -71,6 +73,7 @@ Suggested student exercises:
 *Figure 1: Storage Account Created*
 ![Storage Account created](./screenshots/1-storage-account-overview.png)
 
+<div style="page-break-after: always;"></div>
 
 3. Open Containers
 4. Create a container named: `raw`
