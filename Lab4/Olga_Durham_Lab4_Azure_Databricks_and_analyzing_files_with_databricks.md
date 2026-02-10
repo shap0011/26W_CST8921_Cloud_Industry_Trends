@@ -126,6 +126,8 @@ FROM OPENROWSET(
 *Figure 9: Explore Order Events Parquet file directly from the Data Lake*
 ![Explore Order Events Parquet file directly from the Data Lake](./screenshots/9-explore-order_events-parquet.png)
 
+<div style="page-break-after: always;"></div>
+
 5. Try adding a filter: `WHERE Year > 2022`
 
 ```
