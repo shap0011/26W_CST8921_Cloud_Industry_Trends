@@ -91,6 +91,8 @@ Suggested student exercises:
 *Figure 4: File customers.parquet added*
 ![File order_events.parquet added](./screenshots/4-file-order_events-added.png)
 
+<div style="page-break-after: always;"></div>
+
 ##### Step 2: Explore Data using Serverless SQL
 
 1. Open Azure Synapse Studio
