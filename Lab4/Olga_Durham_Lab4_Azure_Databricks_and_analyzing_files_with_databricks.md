@@ -45,6 +45,8 @@ Files:
    Columns: event_id (string), order_id (string), event_time (timestamp), event_type (string)
    Rows: 422,100  (includes ~0.5% duplicates)
 
+<div style="page-break-after: always;"></div>
+
 Notes:
 - signup_date range: 2022-01-01 to 2025-12-31
 - order_date range:  2023-01-01 to 2025-12-31
@@ -117,6 +119,8 @@ FROM OPENROWSET(
 *Figure 6: Explore Parquet files directly from the Data Lake*
 ![Explore Parquet files directly from the Data Lake](./screenshots/6-explore-parquet-files-directly-from-the-data-lake.png)
 
+<div style="page-break-after: always;"></div>
+
 *Figure 7: Explore Customers Parquet file directly from the Data Lake*
 ![Explore Customers Parquet files directly from the Data Lake](./screenshots/7-explore-customers-parquet-file.png)
 
@@ -164,6 +168,8 @@ WHERE YEAR(
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 11: Explore Orders Parquet file directly from the Data Lake where year > 2022*
 ![Explore Orders Parquet file directly from the Data Lake where year > 2022](./screenshots/12-explore-order-events-parquet-file-year-gr-2022.png)
 
@@ -188,6 +194,8 @@ WHERE YEAR(
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 12: Explore Order Events Parquet file directly from the Data Lake where year > 2022*
 ![Explore Order Events Parquet file directly from the Data Lake where year > 2022](./screenshots/12-explore-order-events-parquet-file-year-gr-2022.png)
 
@@ -210,6 +218,8 @@ df = spark.read.parquet(
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 14: Load the data*
 ![Load the data](./screenshots/14-load-data.png)
 
@@ -229,6 +239,8 @@ df.show(5)
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 16: Inspect the data; show five rows*\
 ![Inspect the data; show five rows](./screenshots/16-inspect-data-show-five-rows.png)
 
@@ -244,6 +256,8 @@ df_customers.show(5)
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 17: Inspect the customers data*
 ![Inspect the customers data](./screenshots/17-inspect-customers-data.png)
 
@@ -257,6 +271,8 @@ This code gave an error: `Illegal Parquet type: INT64 (TIMESTAMP(NANOS,false))`
 That means the orders.parquet file stores order_date as a nanosecond timestamp, and the Spark version behind the Synapse pool can’t read TIMESTAMP(NANOS) directly.
 
 To fix it we have to tell Spark to read that column as INT64, then we’ll convert it ourselves (which also matches the earlier Serverless SQL work).
+
+<div style="page-break-after: always;"></div>
 
 **Read with binaryAsString/schema override (safe approach)**
 
@@ -280,12 +296,16 @@ df_orders.show(5)
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 18: Inspect the orders data*\
 ![Inspect the orders data](./screenshots/18-inspect-orders-data.png)
 
 **What this does:**
 - Forces Spark to **not interpret** the Parquet nanos timestamp as a Spark timestamp
 - Reads it as a plain number (`long`) so we can convert it safely
+
+<div style="page-break-after: always;"></div>
 
 **Turn nanos into a real timestamp**
 
@@ -303,6 +323,8 @@ df_orders.select("order_id", "customer_id", "order_date", "order_datetime", "ord
 
 *Figure 19: Inspect the orders data*
 ![Inspect the orders data](./screenshots/19-inspect-orders-data.png)
+
+<div style="page-break-after: always;"></div>
 
 ```
 from pyspark.sql.types import StructType, StructField, StringType, LongType
@@ -330,10 +352,14 @@ df_events.select("event_id","order_id","event_time","event_datetime","event_type
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 20: Inspect the orders data*
 ![Inspect the orders data](./screenshots/20-inspect-order_events-data.png)
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 #### PART 2: Data Transformation using Spark 
 
@@ -371,6 +397,8 @@ df_events = spark.read.schema(events_schema).parquet(
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 **Remove duplicates**
 
 ```
@@ -395,6 +423,8 @@ print("Events - after :", df_events_dedup.count())
 
 *Figure 22: Verify record count*\
 ![Verify record count](./screenshots/22-verify-record-count.png)
+
+<div style="page-break-after: always;"></div>
 
 ##### Step 5: Fix Data Types 
 
@@ -431,6 +461,8 @@ print(df_orders.count(), df_orders_dedup.count())
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 23: Recreate df_orders and df_orders_dedup after the Synapse Studio being offline*\
 ![Recreate df_orders and df_orders_dedup after the Synapse Studio being offline](./screenshots/23-recreate-df_orders-and-df_orders_dedup.png)
 
@@ -456,8 +488,12 @@ df_orders_clean.show(5, truncate=False)
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 24: Overwrite order_date into a true Spark timestamp & verify schema*\
 ![Overwrite order_date into a true Spark timestamp & verify schema](./screenshots/24-overwrite-order_date-into-a-true-spark-timestamp-and-verify-schema.png)
+
+<div style="page-break-after: always;"></div>
 
 ##### Step 6: Create Derived Columns 
 
@@ -507,8 +543,12 @@ df_orders_transformed.select(
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 25: Create derived columns*\
 ![Create derived columns](./screenshots/25-create-derived-columns.png)
+
+<div style="page-break-after: always;"></div>
 
 ##### Step 7: Write Transformed Data to Refined Zone
 
@@ -525,6 +565,8 @@ df_orders_transformed.write.mode("overwrite").parquet(
 )
 
 ```
+
+<div style="page-break-after: always;"></div>
 
 *Figure 27: Write Orders to refined zone*\
 ![Write Orders to refined zone](./screenshots/27-write-orders-to-refined-zone.png)
@@ -561,6 +603,8 @@ df_events_transformed = (
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 Write events to refined zone
 
 ```
@@ -591,6 +635,8 @@ FROM OPENROWSET(
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 29: Query refined orders directly (validation)*\
 ![Query refined orders directly (validation)](./screenshots/29-query-refined-orders-directly-validation.png)
 
@@ -609,6 +655,8 @@ Switch to the new database
 USE Lab4DB;
 
 ```
+
+<div style="page-break-after: always;"></div>
 
 Create a view for refined orders
 
@@ -648,10 +696,14 @@ ORDER BY Year;
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 Query the table
 
 *Figure 30: Serverless SQL query showing total order events grouped by year*\
 ![Serverless SQL query showing total order events grouped by year](./screenshots/30-query-the-table-total_events-from-refined_order_events.png)
+
+<div style="page-break-after: always;"></div>
 
 ##### Step 9: Analyze & Visualize Data 
 
@@ -700,8 +752,12 @@ df_events_transformed.groupBy("Year").count().orderBy("Year").show()
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 31: Spark notebook aggregation showing total order events grouped by year*\
 ![Spark notebook aggregation showing total order events grouped by year](./screenshots/31-spark-events-by-year.png)
+
+<div style="page-break-after: always;"></div>
 
 Orders by Year
 
@@ -749,6 +805,8 @@ df_orders_transformed.groupBy("Year").count().orderBy("Year").show()
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 *Figure 32: Spark notebook aggregation showing total orders grouped by year*\
 ![Spark notebook aggregation showing total orders grouped by year](./screenshots/32-spark-orders-by-year.png)
 
@@ -760,8 +818,9 @@ After completing the lab activities, all Azure resources created for this lab we
 *Figure 33: Deleting Azure resources created for Lab 4 to prevent ongoing charges*\
 ![Deleting Azure resources created for Lab 4 to prevent ongoing charges](./screenshots/33-resource-group-deleted.png)
 
-
 ---
+
+<div style="page-break-after: always;"></div>
 
 ### Findings
 
@@ -774,6 +833,8 @@ After cleaning and transforming the data, new derived columns (**Year** and **Mo
 Using Synapse Serverless SQL, refined data was successfully queried through external SQL views, enabling aggregation and analysis without copying data into a dedicated database. Aggregation results showed how order events were distributed across multiple years, demonstrating the ability to analyze large datasets efficiently using cloud-native tools.
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 ### Conclusion
 
