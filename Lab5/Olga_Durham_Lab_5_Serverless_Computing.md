@@ -156,12 +156,21 @@ def main(event):
 
 ```
 
+*Figure 8: Updated function_app.py*\
+![Updated function_app.py](./screenshots/08-function-code-updated.png)
+
+*Figure 9: Deployment successful + triggers synced*\
+![Deployment successful + triggers synced](./screenshots/09-function-redeployed-success.png)
+
 #### Step D2 - Verify Function Settings
 
 1.	Go to **Configuration**
 2.	Confirm:
-o	AzureWebJobsStorage exists
-o	Application Insights is enabled
+    - AzureWebJobsStorage exists
+    - Application Insights is enabled
+
+*Figure 10: Function App Configuration Showing AzureWebJobsStorage and Application Insights Enabled*\
+![Function App Configuration Showing AzureWebJobsStorage and Application Insights Enabled](./screenshots/10-function-configuration-verified.png)
 
 ---
 
