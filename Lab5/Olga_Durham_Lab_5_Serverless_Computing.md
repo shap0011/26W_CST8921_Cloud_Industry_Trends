@@ -127,7 +127,8 @@ In this lab, you will
 
 5. Click **Create**
 
-
+*Figure 7: Event Grid Subscription Configured to Trigger ProcessBlobUpload on Blob Created Events*\
+![Event Grid Subscription Configured to Trigger ProcessBlobUpload on Blob Created Events](./screenshots/07-event-subscription-configured.png)
 
 #### Step D1 - Update Function Code
 
