@@ -106,8 +106,8 @@ In this lab, you will
 *Figure 5: Event Grid Trigger Function ProcessBlobUpload Created Locally Using Azure Functions Core Tools*\
 ![Figure 5: Event Grid Trigger Function ProcessBlobUpload Created Locally Using Azure Functions Core Tools](./screenshots/05-event-grid-trigger-created-local.png)
 
-*Figure 6: Function Successfully Deployed to Azure*\
-![Function Successfully Deployed to Azure](./screenshots/06-function-deployed-to-azure.png)
+*Figure 6: Function App Deployment Successful and Event Grid Trigger Synced (ProcessBlobUpload)*\
+![Function App Deployment Successful and Event Grid Trigger Synced](./screenshots/06-function-deployed-trigger-synced.png)
 
 #### Step C1 - Create Event Subscription
 
