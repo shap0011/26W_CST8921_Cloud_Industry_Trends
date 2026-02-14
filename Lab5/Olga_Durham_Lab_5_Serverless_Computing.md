@@ -49,8 +49,8 @@ In this lab, you will
 
 1. Azure Portal → **Create a resource**
 
-*Figure 1: Resource Group Created*\
-![Resource Group Created](./screenshots/1-resource-group-created.png)
+*Figure 1: Resource Group `rg-serverless-lab` Successfully Created in East US*\
+![Resource Group `rg-serverless-lab` Successfully Created in East US](./screenshots/01-resource-group-created-eastus.png)
 
 2. Search **Storage account**
 3. Configure:
@@ -62,8 +62,8 @@ In this lab, you will
     - Redundancy: **LRS**
 4. Click **Review + Create → Create**
 
-*Figure 2: Storage Account `olgaserverlesslab05` Created*\
-![Storage Account `olgaserverlesslab05` Created](./screenshots/2-storage-account-created.png)
+*Figure 2: Storage Account `olgaserverlesslab05` Deployment Successful*\
+![Storage Account `olgaserverlesslab05` Deployment Successful](./screenshots/02-storage-account-deployment-success.png)
 
 #### Step A2 - Create Blob Container
 
@@ -74,8 +74,8 @@ In this lab, you will
     - Public access level: **Private**
 4. Click **Create**
 
-*Figure 3: The `raw-data` Container Created*\
-![The `raw-data` Container Created](./screenshots/3-raw-data-container-created.png)
+*Figure 3: Blob Container `raw-data` Created with Private Access Level*\
+![Blob Container `raw-data` Created with Private Access Level](./screenshots/03-blob-container-raw-data-created.png)
 
 #### Step B1 - Create Function App
 
