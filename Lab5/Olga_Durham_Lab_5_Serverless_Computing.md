@@ -186,6 +186,12 @@ Create a local file named `wind_data.json`:
   "generatedPower": 120.7
 }
 
+*Figure 11: Template Selection*\
+![Template Selection](./screenshots/11-event-grid-template-selection.png)
+
+*Figure 12: Sample Test Data File Created*\
+![Sample Test Data File Created](./screenshots/12-wind-data-json-created.png)
+
 #### Step E2 - Upload File
 
 1. Azure Portal → Storage Account → **Containers**
