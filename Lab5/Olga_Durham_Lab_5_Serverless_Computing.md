@@ -216,6 +216,9 @@ Create a local file named `wind_data.json`:
 
 You should see **successful invocations**.
 
+*Figure 14: Successful invocation list/details*\
+![Successful invocation list/details](./screenshots/14-function-invocation-success.png)
+
 #### Step F2 - View Logs (Blob Content)
 
 1. Inside **Monitor**, open an invocation
