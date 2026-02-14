@@ -62,6 +62,9 @@ In this lab, you will
     - Redundancy: **LRS**
 4. Click **Review + Create → Create**
 
+*Figure 2: Storage Account `olgaserverlesslab05` Created*\
+![Storage Account `olgaserverlesslab05` Created](./screenshots/2-storage-account-created.png)
+
 #### Step A2 - Create Blob Container
 
 1. Open the storage account
