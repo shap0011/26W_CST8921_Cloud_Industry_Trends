@@ -74,6 +74,9 @@ In this lab, you will
     - Public access level: **Private**
 4. Click **Create**
 
+*Figure 3: The `raw-data` Container Created*\
+![The `raw-data` Container Created](./screenshots/3-raw-data-container-created.png)
+
 #### Step B1 - Create Function App
 
 1. Azure Portal → **Create a resource**
