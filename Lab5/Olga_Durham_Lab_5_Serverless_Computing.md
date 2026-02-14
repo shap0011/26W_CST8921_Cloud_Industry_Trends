@@ -90,6 +90,9 @@ In this lab, you will
 4. Enable **Application Insights**
 5. Click **Create**
 
+*Figure 4: Azure Function App Created on Consumption Plan (Python Runtime)*\
+![Azure Function App Created on Consumption Plan (Python Runtime)](./screenshots/04-function-app-created.png)
+
 #### Step B2 - Create Function
 
 1. Open the **Function App**
