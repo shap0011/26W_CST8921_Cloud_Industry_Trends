@@ -226,6 +226,14 @@ You should see **successful invocations**.
     - Blob URL
     - JSON file content
 
+*Figure 15: Function Triggered Successfully, but Blob Download Blocked by Private Access (PublicAccessNotPermitted)*\
+![Figure 15: Function Triggered Successfully, but Blob Download Blocked by Private Access (PublicAccessNotPermitted)](./screenshots/15-application-insights-publicaccesssnotpermitted.png)
+
+- Event Grid trigger fires successfully
+- Blob URL is received
+- Direct HTTP GET fails because storage account/container are private
+- Proper solution is to use managed identity + Azure SDK, or generate SAS
+
 ---
 
 ### Part G - Cleanup (Mandatory)
@@ -236,9 +244,12 @@ To avoid charges:
 2. Select rg-serverless-lab
 3. Click **Delete resource group**
 
+*Figure 16: Resource Group rg-serverless-lab Successfully Deleted*\
+![Resource Group rg-serverless-lab Successfully Deleted](./screenshots/16-resource-group-deleted.png)
+
 ---
 
-### Important Notes
+### Findings and Analysis
 
-For grading prepare a lab report with your findings and analysis and share that in an Assignments tab in Brightspace.
+> Although the Azure Function successfully received the Blob Created event and extracted the blob URL, the attempt to download the blob content using `requests.get()` resulted in a `PublicAccessNotPermitted` error. This occurred because the storage account and container were configured with private access, which prevents anonymous HTTP retrieval. This behavior aligns with Azure security best practices. To properly access the blob content, the function would need to use Managed Identity with Azure SDK authentication or a SAS token. The lab instructions use a simplified HTTP retrieval method that no longer works with default secure storage configurations.
 
