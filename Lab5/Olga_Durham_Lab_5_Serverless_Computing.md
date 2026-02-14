@@ -35,6 +35,8 @@ In this lab, you will
 4. Function retrieves blob content
 5. Data is logged (and optionally transformed)
 
+<div style="page-break-after: always;"></div>
+
 ### Prerequisites
 
 - Basic understanding of cloud computing concepts, serverless computing and python.
@@ -62,6 +64,8 @@ In this lab, you will
     - Redundancy: **LRS**
 4. Click **Review + Create → Create**
 
+<div style="page-break-after: always;"></div>
+
 *Figure 2: Storage Account `olgaserverlesslab05` Deployment Successful*\
 ![Storage Account `olgaserverlesslab05` Deployment Successful](./screenshots/02-storage-account-deployment-success.png)
 
@@ -76,6 +80,8 @@ In this lab, you will
 
 *Figure 3: Blob Container `raw-data` Created with Private Access Level*\
 ![Blob Container `raw-data` Created with Private Access Level](./screenshots/03-blob-container-raw-data-created.png)
+
+<div style="page-break-after: always;"></div>
 
 #### Step B1 - Create Function App
 
@@ -93,6 +99,8 @@ In this lab, you will
 *Figure 4: Azure Function App Created on Consumption Plan (Python Runtime)*\
 ![Azure Function App Created on Consumption Plan (Python Runtime)](./screenshots/04-function-app-created.png)
 
+<div style="page-break-after: always;"></div>
+
 #### Step B2 - Create Function
 
 1. Open the **Function App**
@@ -108,6 +116,8 @@ In this lab, you will
 
 *Figure 6: Function App Deployment Successful and Event Grid Trigger Synced (ProcessBlobUpload)*\
 ![Function App Deployment Successful and Event Grid Trigger Synced](./screenshots/06-function-deployed-trigger-synced.png)
+
+<div style="page-break-after: always;"></div>
 
 #### Step C1 - Create Event Subscription
 
@@ -129,6 +139,8 @@ In this lab, you will
 
 *Figure 7: Event Grid Subscription Configured to Trigger ProcessBlobUpload on Blob Created Events*\
 ![Event Grid Subscription Configured to Trigger ProcessBlobUpload on Blob Created Events](./screenshots/07-event-subscription-configured.png)
+
+<div style="page-break-after: always;"></div>
 
 #### Step D1 - Update Function Code
 
@@ -174,6 +186,8 @@ def main(event):
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 ### Part E - Upload Test Data to Blob Storage
 
 #### Step E1 - Create Sample Data File
@@ -191,6 +205,8 @@ Create a local file named `wind_data.json`:
 
 *Figure 12: Sample Test Data File Created*\
 ![Sample Test Data File Created](./screenshots/12-wind-data-json-created.png)
+
+<div style="page-break-after: always;"></div>
 
 #### Step E2 - Upload File
 
