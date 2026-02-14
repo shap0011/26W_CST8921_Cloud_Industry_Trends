@@ -200,6 +200,9 @@ Create a local file named `wind_data.json`:
 4. Select `wind_data.json`
 5. Click **Upload**
 
+*Figure 13: wind_data.json Uploaded to raw-data Container*\
+![wind_data.json Uploaded to raw-data Container](./screenshots/13-blob-uploaded.png)
+
 ---
 
 ### Part F - Verify End-to-End Execution
