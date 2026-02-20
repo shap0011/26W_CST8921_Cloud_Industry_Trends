@@ -44,7 +44,7 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 2. Search for **Azure Storage.**
 3. Install the extension published by Microsoft.
 
-*Figure 1: Azure Storage Extension Installed in VS Code*
+*Figure 1: Azure Storage Extension Installed in VS Code* \
 ![Azure Storage Extension Installed in VS Code](./screenshots/1-azure-storage-extension.png)
 
 #### Part B: Azure Portal Configuration
@@ -67,10 +67,10 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 5. Leave all other settings as default.
 6. Click **Review + Create,** then **Create.**
 
-*Figure 2: Storage Account Configuration (Basics Tab)*
+*Figure 2: Storage Account Configuration (Basics Tab)* \
 ![Storage Account Configuration (Basics Tab)](./screenshots/2-storage-account-basics.png)
 
-*Figure 3: Storage Account Successfully Created*
+*Figure 3: Storage Account Successfully Created* \
 ![Storage Account Successfully Created](./screenshots/3-storage-account-overview.png)
 
 ##### Step 5: Enable Static Website Hosting
@@ -85,10 +85,10 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 
 Once saved, Azure will generate a **Primary endpoint URL** for your website.
 
-*Figure 4: Static Website Enabled*
+*Figure 4: Static Website Enabled* \
 ![Static Website Enabled](./screenshots/4-static-website-enabled.png)
 
-*Figure 5: Primary Endpoint URL Generated*
+*Figure 5: Primary Endpoint URL Generated* \
 ![Primary Endpoint URL Generated](./screenshots/5-primary-endpoint.png)
 
 #### Part C: Create the Static Website Locally
@@ -99,10 +99,10 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 2. `mywebsite`
 3. Open this folder in **Visual Studio Code.**
 
-*Figure 6: Deploy to Static Website from VS Code*
+*Figure 6: Deploy to Static Website from VS Code* \
 ![Deploy to Static Website from VS Code](./screenshots/6-deploy-vscode.png)
 
-*Figure 7: Deployment Successful Message*
+*Figure 7: Deployment Successful Message* \
 ![Deployment Successful Message](./screenshots/7-deployment-success.png)
 
 ##### Step 7: Create index.html
@@ -130,10 +130,10 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
   </body>
 </html>
 
-*Figure 8: Hello World Page Displayed Successfully*
+*Figure 8: Hello World Page Displayed Successfully* \
 ![Hello World Page Displayed Successfully](./screenshots/8-hello-world.png)
 
-*Figure 9: 404 Page Displayed for Invalid URL*
+*Figure 9: 404 Page Displayed for Invalid URL* \
 ![404 Page Displayed for Invalid URL](./screenshots/9-404-page.png)
 
 #### Part D: Deploy Website to Azure
