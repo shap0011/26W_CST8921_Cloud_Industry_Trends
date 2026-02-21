@@ -182,3 +182,6 @@ During the lab, no major technical issues occurred, but there were a few minor c
 
 ### Final Observations and Learning Outcomes
 
+Through this lab, I gained practical experience working with Azure Blob Storage and static website hosting. I learned how cloud storage accounts can be configured to serve web content without requiring traditional server infrastructure, demonstrating the advantages of serverless architecture. This activity reinforced my understanding of how cloud services simplify deployment, improve scalability, and reduce operational overhead.
+
+Additionally, I developed hands-on experience integrating local development tools with cloud platforms and managing cloud resources responsibly. Overall, this lab strengthened my understanding of cloud-based web hosting solutions and highlighted how cost-effective and scalable infrastructure can be implemented in real-world environments.
