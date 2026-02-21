@@ -9,7 +9,7 @@
 
 ### Introduction 
 
-In this lab, students will explore and understand cloud storage account. Cloud Storage Account is a storage offering that is designed to support and enhance the capabilities of systems that are serving documents, files, images, video and logs files at scale with features such as high availability and replications. The primary service of the storage account, Blob storage supports low-cost and tiered storage with high availability and strong consistency to provide fast and reliable disaster recovery solutions for a massive amount of data.
+In this lab, students explore and gain an understanding of cloud storage accounts. Cloud Storage Account is a storage offering that is designed to support and enhance the capabilities of systems that are serving documents, files, images, video and logs files at scale with features such as high availability and replication. The primary service of the storage account, Blob storage supports low-cost and tiered storage with high availability and strong consistency to provide fast and reliable disaster recovery solutions for a massive amount of data.
 Static website is one of the newly introduced capabilities of Cloud Storage Account that supports hosting static HTML-based website and associated assets to host website. The hosting does not require any rendering or management of the hosting platform. If companies are looking to host a simple landing page or static content, a Static website with Cloud Storage might be the best option for the organization.
 
 ---
@@ -91,8 +91,6 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 *Figure 5: Primary Endpoint URL Generated* \
 ![Primary Endpoint URL Generated](./screenshots/5-primary-endpoint.png)
 
-<!-- https://olgalab6static2026.z9.web.core.windows.net/ -->
-
 #### Part C: Create the Static Website Locally
 
 ##### Step 6: Create Website Folder
@@ -106,12 +104,15 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 1. Inside the `mywebsite` folder, create a file named:
 2. index.html
 3. Paste the following content and save:
+
+```
 <!DOCTYPE html>
 <html>
   <body>
     <h1>Hello World!</h1>
   </body>
 </html>
+```
 
 ##### Step 8: Create 404.html
 
@@ -119,12 +120,14 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 2. 404.html
 3. Paste the following content and save:
 
+```
 <!DOCTYPE html>
 <html>
   <body>
     <h1>404</h1>
   </body>
 </html>
+```
 
 #### Part D: Deploy Website to Azure
 
