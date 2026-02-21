@@ -14,13 +14,13 @@ Static website is one of the newly introduced capabilities of Cloud Storage Acco
 
 ---
 
-### Objective
+### Objective (In my own words)
 
-The goal of this lab activity is to familiarize students with the concepts, techniques and containerized cloud solutions using AWS/Azure/GCP
+The objective of this lab was to gain practical experience in configuring and deploying a static website using Azure Blob Storage. Through this process, I developed a deeper understanding of how cloud storage accounts function, how static website hosting is enabled within Azure, and how local development tools such as Visual Studio Code integrate with cloud services. This lab allowed me to explore the concept of serverless static hosting, where no traditional web server management is required, and to understand how Azure generates public endpoints to make content globally accessible. Additionally, I learned the importance of resource management in cloud environments, including selecting appropriate redundancy options and properly deleting resources to prevent unnecessary costs. Overall, this activity strengthened my understanding of cloud-based web hosting and reinforced the scalability and cost-effectiveness of solutions in real-world cloud environments.
 
 ---
 
-### Prerequisites:
+### Prerequisites
 
 - Basic understanding of cloud storage types
 - A computer with internet access 
@@ -30,7 +30,7 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 
 ---
 
-### Lab Activity Overview:
+### Lab Activity Overview
 
 #### Part A: Environment Setup
 
@@ -195,6 +195,6 @@ For grading, students must submit a **Lab Report** via the **Assignments tab in 
 
 ---
 
-### Important Notes
+### Issues Encountered
 
-For grading prepare a lab report with your findings and analysis and share that in an Assignments tab in Brightspace.
+During the lab, no major technical issues occurred, but there were a few minor challenges. One challenge was distinguishing between testing the website locally and verifying it through the Azure public endpoint, which confirmed that the site was successfully deployed to the cloud. I also needed to review the differences between storage redundancy options (LRS vs. GRS) to make an appropriate selection. These small challenges helped reinforce my understanding of Azure configuration settings and the overall cloud deployment process.
