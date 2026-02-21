@@ -79,8 +79,8 @@ The goal of this lab activity is to familiarize students with the concepts, tech
 2. In the left navigation pane, select **Static website.**
 3. Set **Static website** to **Enabled.**
 4. Configure:
-    - **Index document name:** index.html
-    - **Error document path:** 404.html
+    - **Index document name:** `index.html`
+    - **Error document path:** `404.html`
 5. Click **Save.**
 
 Once saved, Azure will generate a **Primary endpoint URL** for your website.
