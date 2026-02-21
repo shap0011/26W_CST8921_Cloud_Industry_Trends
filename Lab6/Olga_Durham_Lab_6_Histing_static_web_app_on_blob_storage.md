@@ -176,7 +176,13 @@ This step ensures no unnecessary cloud resources remain active.
 
 ### Issues Encountered
 
-During the lab, no major technical issues occurred, but there were a few minor challenges. One challenge was distinguishing between testing the website locally and verifying it through the Azure public endpoint, which confirmed that the site was successfully deployed to the cloud. I also needed to review the differences between storage redundancy options (LRS vs. GRS) to make an appropriate selection. These small challenges helped reinforce my understanding of Azure configuration settings and the overall cloud deployment process.
+During the lab, no major technical errors occurred; however, there were a few minor challenges. One issue was understanding the difference between testing the website locally (using the localhost address) and testing it through the Azure public endpoint. Initially, both URLs displayed the same content, but only the Azure endpoint confirmed that the site was successfully deployed to the cloud.
+
+Another consideration was selecting the appropriate storage redundancy option (LRS vs. GRS). Understanding the cost and replication differences between these options required reviewing Azure’s documentation to ensure an appropriate selection for a simple static website.
+
+Additionally, it was important to ensure that the correct files (`index.html` and `404.html`) were deployed to the `$web` container and that the static website feature was enabled before testing the public URL. Verifying these configurations helped prevent potential deployment or access issues.
+
+Overall, the challenges were minor and helped reinforce my understanding of Azure configuration settings and cloud deployment workflows.
 
 ---
 
