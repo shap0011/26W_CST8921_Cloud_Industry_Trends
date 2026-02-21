@@ -169,32 +169,16 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 
 This step ensures no unnecessary cloud resources remain active.
 
-##### 7. Expected Outcome
-
-By the end of this lab, students should be able to:
-
-- Successfully host a static website using Azure Blob Storage
-- Access the site through a public web endpoint
-- Understand the benefits of serverless static hosting
-- Deploy cloud resources using Visual Studio Code
-
-##### 8. Lab Report Submission Requirements
-
-For grading, students must submit a **Lab Report** via the **Assignments tab in Brightspace,** including:
-
-##### Lab Report Must Contain
-
-- Objective of the lab (in your own words)
-- Screenshots of:
-- Storage account creation
-- Static website configuration
-- Successful website output
-- Steps followed during deployment
-- Issues encountered (if any) and how they were resolved
-- Final observations and learning outcomes
+*Figure 10: Resources Deleted* \
+![Resources Deleted](./screenshots/10-resources-deleted.png)
 
 ---
 
 ### Issues Encountered
 
 During the lab, no major technical issues occurred, but there were a few minor challenges. One challenge was distinguishing between testing the website locally and verifying it through the Azure public endpoint, which confirmed that the site was successfully deployed to the cloud. I also needed to review the differences between storage redundancy options (LRS vs. GRS) to make an appropriate selection. These small challenges helped reinforce my understanding of Azure configuration settings and the overall cloud deployment process.
+
+---
+
+### Final Observations and Learning Outcomes
+
