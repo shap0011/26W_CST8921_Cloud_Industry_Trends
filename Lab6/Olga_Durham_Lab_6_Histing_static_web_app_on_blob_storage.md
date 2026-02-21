@@ -91,6 +91,8 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 *Figure 5: Primary Endpoint URL Generated* \
 ![Primary Endpoint URL Generated](./screenshots/5-primary-endpoint.png)
 
+<!-- https://olgalab6static2026.z9.web.core.windows.net/ -->
+
 #### Part C: Create the Static Website Locally
 
 ##### Step 6: Create Website Folder
@@ -98,12 +100,6 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 1. Create a new folder on your local machine named:
 2. `mywebsite`
 3. Open this folder in **Visual Studio Code.**
-
-*Figure 6: Deploy to Static Website from VS Code* \
-![Deploy to Static Website from VS Code](./screenshots/6-deploy-vscode.png)
-
-*Figure 7: Deployment Successful Message* \
-![Deployment Successful Message](./screenshots/7-deployment-success.png)
 
 ##### Step 7: Create index.html
 
@@ -130,12 +126,6 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
   </body>
 </html>
 
-*Figure 8: Hello World Page Displayed Successfully* \
-![Hello World Page Displayed Successfully](./screenshots/8-hello-world.png)
-
-*Figure 9: 404 Page Displayed for Invalid URL* \
-![404 Page Displayed for Invalid URL](./screenshots/9-404-page.png)
-
 #### Part D: Deploy Website to Azure
 
 ##### Step 9: Deploy to Static Website
@@ -147,6 +137,12 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
     - Storage account you created earlier
 4. Wait for the deployment to complete.
 
+*Figure 6: Deploy to Static Website from VS Code* \
+![Deploy to Static Website from VS Code](./screenshots/6-deploy-vscode.png)
+
+*Figure 7: Deployment Successful Message* \
+![Deployment Successful Message](./screenshots/7-deployment-success.png)
+
 ##### Step 10: Validate Deployment
 
 1. Return to the **Azure Portal.**
@@ -155,6 +151,12 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 4. Confirm:
     - “Hello World!” page loads successfully
     - Navigating to a non-existent page displays the **404** page
+
+*Figure 8: Hello World Page Displayed Successfully* \
+![Hello World Page Displayed Successfully](./screenshots/8-hello-world.png)
+
+*Figure 9: 404 Page Displayed for Invalid URL* \
+![404 Page Displayed for Invalid URL](./screenshots/9-404-page.png)
 
 #### Part E: Cleanup (Mandatory)
 
