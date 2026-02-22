@@ -153,6 +153,8 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 *Figure 6: Deploy to Static Website from VS Code* \
 ![Deploy to Static Website from VS Code](./screenshots/6-deploy-vscode.png)
 
+<div style="page-break-after: always;"></div>
+
 *Figure 7: Deployment Successful Message* \
 ![Deployment Successful Message](./screenshots/7-deployment-success.png)
 
@@ -181,6 +183,8 @@ Once saved, Azure will generate a **Primary endpoint URL** for your website.
 4. Confirm deletion.
 
 This step ensures no unnecessary cloud resources remain active.
+
+<div style="page-break-after: always;"></div>
 
 *Figure 10: Resources Deleted* \
 ![Resources Deleted](./screenshots/10-resources-deleted.png)
