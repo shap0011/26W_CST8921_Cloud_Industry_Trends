@@ -71,37 +71,44 @@ Storage: stsmartturbrm12
 
 ### Lab Activity Overview
 
-#### Phase 1 — Infrastructure Setup 
+#### Phase 1 — Infrastructure Setup
 
 1.	Create Resource Group: az group create -l eastus -n rg-SmartTurbine
 
 2.	Create Storage Account (for Table Storage): Pick a globally unique name:
 
+```
 az storage account create \
   -n <YOUR_STORAGE_ACCOUNT_NAME> \
   -g rg-SmartTurbine \
   -l eastus \
   --sku Standard_LRS
+```
 
 3.	Create Event Hub Namespace + Event Hub
 
+```
 az eventhubs namespace create \
   -g rg-SmartTurbine \
   -n <YOUR_EVENTHUB_NAMESPACE> \
   -l eastus \
   --sku Basic
+```
 
 Create the hub:
 
+```
 az eventhubs eventhub create \
   -g rg-SmartTurbine \
   --namespace-name <YOUR_EVENTHUB_NAMESPACE> \
   -n turbine-telemetry
+```
 
 4.	Create a Functions-compatible storage account is usually required; we will reuse your storage account 
 
 Create Function App (Consumption Plan) 
 
+```
 az functionapp create \
   -g rg-SmartTurbine \
   -n func-smartturbine-<yourinitials><2digits> \
@@ -109,6 +116,7 @@ az functionapp create \
   --runtime dotnet \
   --functions-version 4 \
   --storage-account <YOUR_STORAGE_ACCOUNT_NAME>
+```
 
 5.	Create the NoSQL Table: TurbineMetrics
 
@@ -119,20 +127,23 @@ Option B (CLI):
 
 Get storage key:
 
+```
 az storage account keys list \
   -g rg-SmartTurbine \
   -n <YOUR_STORAGE_ACCOUNT_NAME> \
   --query "[0].value" -o tsv
+```
 
 Create table:
 
+```
 az storage table create \
   --name TurbineMetrics \
   --account-name <YOUR_STORAGE_ACCOUNT_NAME> \
   --account-key <PASTE_KEY_HERE>
+```
 
-
-Phase 2 : Building the brain
+#### Phase 2 : Building the brain
 
 1. Open the Function Project: Open FunctionDWDumper
 a)	What you must change: Right now it probably “dumps” messages. You will:
@@ -142,11 +153,12 @@ d)	Write the record to Azure Table Storage via output binding
 
 FunctionDWDumper function
 
-
+```
 using Azure.Data.Tables;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
+
 
 namespace FunctionDWDumper
 {
@@ -194,6 +206,8 @@ namespace FunctionDWDumper
     }
 }
 
+```
+
         2. Implement the Health Scoring Logic
 
           Rule: If WindSpeed > 15 AND GeneratedPower < 5 → Status="URGENT" Else →  Status="HEALTHY"
@@ -212,6 +226,7 @@ A) Example Entity Model (C#)
 
 Create a model like this (or adapt your existing one):
 
+```
 public class TurbineMetricEntity
 {
     public string PartitionKey { get; set; }   // DeviceId
@@ -221,6 +236,7 @@ public class TurbineMetricEntity
     public double TurbineSpeed { get; set; }
     public string Status { get; set; }
 }
+```
 
 B) Example Function Output Binding (typical pattern)
 
@@ -234,6 +250,7 @@ host.json + extension bundles.
 
 If your project uses function.json, your output binding block will look like:
 
+```
 {
   "type": "table",
   "name": "outputTableEntity",
@@ -241,6 +258,7 @@ If your project uses function.json, your output binding block will look like:
   "connection": "AzureWebJobsStorage",
   "direction": "out"
 }
+```
 
 And your function returns the entity object (or sets outputTableEntity).
 
@@ -262,10 +280,12 @@ Copy Connection string–primary key
 
 In CLI (optional), set it:
 
+```
 az functionapp config appsettings set \
   -g rg-SmartTurbine \
   -n func-smartturbine-<yourinitials><2digits> \
   --settings "EventHubConnection=<PASTE_EVENTHUB_CONNECTION_STRING>"
+```
 
 B) Ensure storage setting exists
 
@@ -281,18 +301,19 @@ table output binding
 
 event hub trigger binding
 
-Phase 3 — The Automation Layer (50 minutes)
+#### Phase 3 — The Automation Layer (50 minutes)
+
 1. Create a Logic App (Consumption)
 
 Azure Portal:
 
 Create Resource → Logic App (Consumption)
 
-Resource Group: rg-SmartTurbine
+Resource Group: `rg-SmartTurbine`
 
-Region: eastus
+Region: `eastus`
 
-Name: la-smartturbine-<yourinitials><2digits>
+Name: `la-smartturbine-<yourinitials><2digits>`
 
 2. Build the Workflow
 Trigger
@@ -303,9 +324,9 @@ Azure Table Storage → When an entity is added (or similar)
 
 Configure:
 
-Storage account: <YOUR_STORAGE_ACCOUNT_NAME>
+Storage account: `<YOUR_STORAGE_ACCOUNT_NAME>`
 
-Table: TurbineMetrics
+Table: `TurbineMetrics`
 
 If the connector asks for auth: use Access Key or sign-in depending on portal options.
 
@@ -335,7 +356,8 @@ If the trigger fields show different names, use:
 
 {RowKey} = Timestamp
 
-Phase 4 — Live Simulation & Monitoring 
+#### Phase 4 — Live Simulation & Monitoring
+
 1. Run the Data Generator
 
 Run:
