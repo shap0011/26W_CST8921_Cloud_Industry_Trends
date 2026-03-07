@@ -3,14 +3,14 @@
 
 ## Lab 7 – Serverless Computing
 
-**Completed by: Olga Durham**
+**Completed by: Olga Durham** \
 **St#: 040687883**
 
 ---
 
-### Introduction 
+### Introduction
 
-In this lab, students will gain hands-on experience in building and managing serverless framework. They will learn how to deploy first serverless microservice in cloud. 
+In this lab, students will gain hands-on experience in building and managing serverless framework. They will learn how to deploy first serverless microservice in cloud.
 Serverless computing is one of the most interesting and useful parts the cloud offers. It allows engineers to design and code their applications, and then execute them without worrying about the underlying server infrastructure. One of the most famous paradigms Serverless computing introduced is the FaaS (Function as a Service). That means you focus more on single tasks and functions, instead of thinking about the whole application structure. It's very powerful because all the resources needed to serve and maintain the functions are handled automatically by the providers.
 If you want to build a serverless application, it could be difficult to see the benefits if you don't leverage a framework to create resources to perform tasks to let the serverless application run. The Serverless Framework is a solution to easily manage the process of packaging and deployment of serverless applications. It's cloud-agnostic, so you can leverage the framework by using the most popular public cloud providers like Amazon Web Services, Google Cloud Platform, and Microsoft Azure.
 In this lab, you will understand the basic components of the Serverless Framework, you'll migrate Event Hubs captured data from Azure Blob Storage to Azure Synapse Analytics, specifically a dedicated SQL pool, using Azure Event Grid and Azure Functions.
@@ -19,17 +19,17 @@ In this lab, you will understand the basic components of the Serverless Framewor
 
 ### Objective
 
-Goal: Ingest telemetry → score health in an Azure Function → store in Azure Table Storage → trigger logic App email alert when urgent
+**Goal:** Ingest telemetry → score health in an Azure Function → store in Azure Table Storage → trigger logic App email alert when urgent
 
 ---
 
 ### Learning Outcomes: By the end of this lab, you will be able to
 
-1.	Deploy an event-driven ingestion stack using Azure CLI.
-2.	Process streaming telemetry with an Azure Function (rule engine).
-3.	Store structured telemetry in Azure Table Storage (low-cost NoSQL).
-4.	Automate alerts using a Logic App trigger + condition.
-5.	Monitor end-to-end flow and validate output.
+1. Deploy an event-driven ingestion stack using Azure CLI.
+2. Process streaming telemetry with an Azure Function (rule engine).
+3. Store structured telemetry in Azure Table Storage (low-cost NoSQL).
+4. Automate alerts using a Logic App trigger + condition.
+5. Monitor end-to-end flow and validate output.
 
 ---
 
@@ -47,21 +47,21 @@ If WindSpeed > 15 AND GeneratedPower < 5 → Status = "URGENT" Else → Status =
 
 ### Prerequisites (Before You Start)
 
-1.	Azure account with permission to create resources
-2.	Azure CLI installed and logged in:
-3.	az login
-4.	az account show
-5.	A code editor (VS Code recommended)
-6.	WindTurbineDataGenerator.exe available (provided by instructor)
-7.	Function project available (provided by instructor): FunctionDWDumper (you will modify it)
+1. Azure account with permission to create resources
+2. Azure CLI installed and logged in:
+3. az login
+4. az account show
+5. A code editor (VS Code recommended)
+6. WindTurbineDataGenerator.exe available (provided by instructor)
+7. Function project available (provided by instructor): FunctionDWDumper (you will modify it)
 
 To avoid conflicts and grading confusion:
 
-1.	Resource Group: rg-SmartTurbine
-2.	Region: eastus
-3.	Table Name: TurbineMetrics
-4.	Event Hub Namespace: hubdatamigration-<yourinitials>-<2digits>
-5.	Storage Account: stsmartturb<yourinitials><2digits> (must be lowercase, 3–24 chars)
+1. Resource Group: rg-SmartTurbine
+2. Region: eastus
+3. Table Name: TurbineMetrics
+4. Event Hub Namespace: hubdatamigration-<yourinitials>-<2digits>
+5. Storage Account: stsmartturb<yourinitials><2digits> (must be lowercase, 3–24 chars)
 
 Example for “RM12”:
 Namespace: hubdatamigration-rm-12
@@ -73,9 +73,13 @@ Storage: stsmartturbrm12
 
 #### Phase 1 — Infrastructure Setup
 
-1.	Create Resource Group: az group create -l eastus -n rg-SmartTurbine
+1. Create Resource Group
 
-2.	Create Storage Account (for Table Storage): Pick a globally unique name:
+```
+az group create -l eastus -n rg-SmartTurbine
+```
+
+2. Create Storage Account (for Table Storage): Pick a globally unique name:
 
 ```
 az storage account create \
@@ -146,10 +150,11 @@ az storage table create \
 #### Phase 2 : Building the brain
 
 1. Open the Function Project: Open FunctionDWDumper
-a)	What you must change: Right now it probably “dumps” messages. You will:
-b)	Parse telemetry fields from the incoming event
-c)	Compute Status based on thresholds
-d)	Write the record to Azure Table Storage via output binding
+
+a) What you must change: Right now it probably “dumps” messages. You will:
+b) Parse telemetry fields from the incoming event
+c) Compute Status based on thresholds
+d) Write the record to Azure Table Storage via output binding
 
 FunctionDWDumper function
 
@@ -216,11 +221,11 @@ namespace FunctionDWDumper
 
 You will output an entity with:
 
-PartitionKey = DeviceId
+PartitionKey = `DeviceId`
 
-RowKey = Timestamp (string; must be unique per device)
+RowKey = `Timestamp` (string; must be unique per device)
 
-Fields: WindSpeed, GeneratedPower, TurbineSpeed, Status
+Fields: `WindSpeed`, `GeneratedPower`, `TurbineSpeed`, `Status`
 
 A) Example Entity Model (C#)
 
@@ -362,15 +367,15 @@ If the trigger fields show different names, use:
 
 Run:
 
-WindTurbineDataGenerator.exe
+`WindTurbineDataGenerator.exe`
 
 Configure it (if it asks):
 
-Event Hub namespace/hub
+`Event Hub namespace/hub`
 
-Connection string
+`Connection string`
 
-Send interval (default is fine)
+`Send interval (default is fine)`
 
 2. Watch the Function Execute
 
@@ -386,11 +391,11 @@ Storage Account → Tables → TurbineMetrics
 
 You should see rows with:
 
-PartitionKey = device id
+PartitionKey = `device id`
 
-RowKey = timestamp
+RowKey = `timestamp`
 
-Status = HEALTHY/URGENT
+Status = `HEALTHY/URGENT`
 
 4. Confirm the Alert
 
@@ -402,9 +407,8 @@ Inbox
 
 Logic App → Run history (you should see a successful run)
 
+---
 
+### Important Notes
 
-Important Notes: 
 For grading prepare a lab report with your findings and analysis and share that in an Assignments tab in Brightspace.
-
-
