@@ -57,15 +57,15 @@ If WindSpeed > 15 AND GeneratedPower < 5 → Status = "URGENT" Else → Status =
 
 To avoid conflicts and grading confusion:
 
-1. Resource Group: rg-SmartTurbine
-2. Region: eastus
-3. Table Name: TurbineMetrics
-4. Event Hub Namespace: hubdatamigration-<yourinitials>-<2digits>
-5. Storage Account: stsmartturb<yourinitials><2digits> (must be lowercase, 3–24 chars)
+1. Resource Group: `rg-SmartTurbine`
+2. Region: `eastus`
+3. Table Name: `TurbineMetrics`
+4. Event Hub Namespace: `hubdatamigration-<yourinitials>-<2digits>`
+5. Storage Account: `stsmartturb<yourinitials><2digits> (must be lowercase, 3–24 chars)`
 
 Example for “RM12”:
-Namespace: hubdatamigration-rm-12
-Storage: stsmartturbrm12
+Namespace: `hubdatamigration-rm-12`
+Storage: `stsmartturbrm12`
 
 ---
 
@@ -89,7 +89,7 @@ az storage account create \
   --sku Standard_LRS
 ```
 
-3.	Create Event Hub Namespace + Event Hub
+3. Create Event Hub Namespace + Event Hub
 
 ```
 az eventhubs namespace create \
