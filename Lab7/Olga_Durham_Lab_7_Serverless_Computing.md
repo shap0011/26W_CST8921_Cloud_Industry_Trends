@@ -208,9 +208,9 @@ namespace FunctionDWDumper
 
 ```
 
-        2. Implement the Health Scoring Logic
+2. Implement the Health Scoring Logic
 
-          Rule: If WindSpeed > 15 AND GeneratedPower < 5 → Status="URGENT" Else →  Status="HEALTHY"
+  Rule: If WindSpeed > 15 AND GeneratedPower < 5 → Status="URGENT" Else →  Status="HEALTHY"
 
 3. Configure Table Storage Output Binding (Azure Functions)
 
