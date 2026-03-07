@@ -10,8 +10,7 @@
 
 ### Introduction
 
-In this lab, students will gain hands-on experience in building and managing serverless framework. They will learn how to deploy first serverless microservice in cloud.
-Serverless computing is one of the most interesting and useful parts the cloud offers. It allows engineers to design and code their applications, and then execute them without worrying about the underlying server infrastructure. One of the most famous paradigms Serverless computing introduced is the FaaS (Function as a Service). That means you focus more on single tasks and functions, instead of thinking about the whole application structure. It's very powerful because all the resources needed to serve and maintain the functions are handled automatically by the providers.
+In this lab, students will gain hands-on experience in building and managing serverless framework. They will learn how to deploy first serverless microservice in cloud. Serverless computing is one of the most interesting and useful parts the cloud offers. It allows engineers to design and code their applications, and then execute them without worrying about the underlying server infrastructure. One of the most famous paradigms Serverless computing introduced is the FaaS (Function as a Service). That means you focus more on single tasks and functions, instead of thinking about the whole application structure. It's very powerful because all the resources needed to serve and maintain the functions are handled automatically by the providers.
 If you want to build a serverless application, it could be difficult to see the benefits if you don't leverage a framework to create resources to perform tasks to let the serverless application run. The Serverless Framework is a solution to easily manage the process of packaging and deployment of serverless applications. It's cloud-agnostic, so you can leverage the framework by using the most popular public cloud providers like Amazon Web Services, Google Cloud Platform, and Microsoft Azure.
 In this lab, you will understand the basic components of the Serverless Framework, you'll migrate Event Hubs captured data from Azure Blob Storage to Azure Synapse Analytics, specifically a dedicated SQL pool, using Azure Event Grid and Azure Functions.
 
@@ -66,6 +65,19 @@ To avoid conflicts and grading confusion:
 Example for “RM12”:
 Namespace: `hubdatamigration-rm-12`
 Storage: `stsmartturbrm12`
+
+#### Final Resource Names
+
+| Resource            | Name                     |
+| ------------------- | ------------------------ |
+| Resource Group      | `rg-SmartTurbine`        |
+| Region              | `eastus`                 |
+| Storage Account     | `stsmartturbod12`        |
+| Event Hub Namespace | `hubdatamigration-od-12` |
+| Event Hub           | `turbine-telemetry`      |
+| Function App        | `func-smartturbine-od12` |
+| Logic App           | `la-smartturbine-od12`   |
+| Table Name          | `TurbineMetrics`         |
 
 ---
 
