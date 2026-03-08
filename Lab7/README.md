@@ -31,6 +31,33 @@ A Logic App workflow is used to automate alerting based on the stored telemetry 
 
 Although some services were restricted in the CloudLabs environment, the implemented solution preserves the intended serverless architecture: telemetry ingestion, serverless processing, persistent storage, and automated alerting.
 
+#### Architecture Diagram
+
+```mermaid
+flowchart TD
+    A[Wind Turbine<br>Telemetry Generator]
+    B[Azure Event Hub]
+    C[Azure Function<br>Rule Engine]
+    D[Azure Table Storage<br>TurbineMetrics]
+    E[Logic App Workflow]
+    F[Email Alert]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E -->|Status = URGENT| F
+```
+
+*Figure 1. Serverless Wind Turbine Monitoring Architecture*
+
+#### Logic App Workflow
+
+![Logic App Workflow](./screenshots/02-logic-app-workflow.png)
+
+*Figure 2. Logic App workflow used for alert automation*
+
+
 ---
 
 ### Conclusion
