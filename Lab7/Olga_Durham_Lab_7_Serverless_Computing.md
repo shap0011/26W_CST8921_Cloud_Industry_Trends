@@ -79,6 +79,33 @@ Storage: `stsmartturbrm12`
 | Logic App           | `la-smartturbine-od12`   |
 | Table Name          | `TurbineMetrics`         |
 
+*Fig 1 - az account show (cropped)*
+![az account show](./screenshots/01-az-account-show.png)
+
+Create resource group
+
+```
+az group create -l eastus -n rg-SmartTurbine
+```
+
+Verify the group exists
+
+```
+az group list --output table
+```
+
+Create Storage Account
+
+```
+az storage account create -n stsmartturbod12 -g rg-SmartTurbine -l eastus --sku Standard_LRS
+```
+
+Create the Event Hub namespace
+
+```
+az eventhubs namespace create -g rg-SmartTurbine -n hubdatamigration-od-12 -l eastus --sku Basic
+```
+
 ---
 
 ### Lab Activity Overview
