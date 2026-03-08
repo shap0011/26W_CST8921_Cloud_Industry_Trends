@@ -5,6 +5,14 @@
 
 ---
 
+## Lab Objective
+
+The objective of this lab was to design and implement a serverless monitoring pipeline using Microsoft Azure services. The system processes telemetry data from wind turbines, evaluates turbine health using an Azure Function rule engine, stores processed metrics in Azure Table Storage, and triggers automated alerts using a Logic App workflow.
+
+Through this implementation, the lab demonstrates how serverless cloud services can be combined to create scalable, event-driven architectures that process data and automate operational responses without managing server infrastructure.
+
+---
+
 ## Findings and Analysis
 
 During the implementation of the serverless architecture, several limitations related to the CloudLabs training environment were encountered. The lab instructions required the use of Azure Event Hubs to ingest telemetry data and an Azure Table Storage trigger in Logic Apps to monitor the `TurbineMetrics` table. However, these components were partially restricted by Azure policies applied to the CloudLabs subscription.
