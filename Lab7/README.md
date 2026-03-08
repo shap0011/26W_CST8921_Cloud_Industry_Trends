@@ -34,7 +34,7 @@ Although some services were restricted in the CloudLabs environment, the impleme
 #### Architecture Diagram
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[Wind Turbine<br>Telemetry Generator]
     B[Azure Event Hub]
     C[Azure Function<br>Rule Engine]
