@@ -33,4 +33,17 @@ Although some services were restricted in the CloudLabs environment, the impleme
 
 ---
 
+### Conclusion
+
+This lab provided practical experience with serverless computing in Microsoft Azure. By building and deploying a serverless workflow, the lab demonstrated how cloud-native services can be used to process telemetry data, evaluate system health conditions, and automate operational alerts without managing server infrastructure.
+
+The implementation included the deployment of an Azure Function that processes telemetry data and applies rule-based logic to determine turbine health status. The processed telemetry was stored in Azure Table Storage, enabling structured and cost-efficient storage of turbine metrics. A Logic App workflow was also created to demonstrate automated alerting based on turbine health conditions.
+
+During the lab, certain services such as Azure Event Hubs and specific Logic App connectors were restricted by the CloudLabs training subscription policies. Despite these limitations, the core components of the architecture were successfully implemented, and alternative configurations were used to demonstrate the intended automation workflow.
+
+Overall, the lab illustrates the advantages of serverless cloud architectures, including simplified deployment, automatic scaling, and the ability to build responsive data-processing pipelines using managed cloud services.
+
+---
+
+
 
