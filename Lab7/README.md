@@ -49,6 +49,21 @@ flowchart LR
 
 *Figure 1. Serverless Wind Turbine Monitoring Architecture*
 
+#### Key Architecture Components
+
+The serverless monitoring system implemented in this lab consists of the following components:
+
+| Component                        | Description                                                                                                                                                                                                |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Telemetry Source**             | A wind turbine data generator simulates telemetry data such as wind speed, turbine speed, and generated power.                                                                                             |
+| **Azure Function (Rule Engine)** | The `FunctionDWDumper` Azure Function processes incoming telemetry events, evaluates turbine health status using rule-based logic, and determines whether the turbine status is **HEALTHY** or **URGENT**. |
+| **Azure Table Storage**          | Processed telemetry metrics are stored in the `TurbineMetrics` table using the device identifier as the partition key and the timestamp as the row key.                                                    |
+| **Logic App Workflow**           | The Logic App monitors turbine status values and automatically triggers an email notification when an **URGENT** condition is detected.                                                                    |
+| **Email Notification**           | When a critical turbine condition is identified, an automated email alert is sent to notify system operators.                                                                                              |
+
+Together, these components form a serverless, event-driven monitoring pipeline that processes telemetry data, evaluates system health, stores structured metrics, and automates operational alerts.
+
+
 ### Logic App Workflow
 
 ![Logic App Workflow](./screenshots/02-logic-app-workflow.png)
