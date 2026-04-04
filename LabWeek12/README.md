@@ -10,12 +10,14 @@
 ### Objective:
 
 By the end of this lab, learners will:
-• Provision Azure AI Search and Azure OpenAI resources
-• Deploy an embedding model and an LLM/chat model
-• Create a vector-enabled search index
-• Ingest and index documents
-• Run vector and hybrid search queries
-• Use an LLM to generate grounded answers from retrieved search results
+
+- Provision Azure AI Search and Azure OpenAI resources
+- Deploy an embedding model and an LLM/chat model
+- Create a vector-enabled search index
+- Ingest and index documents
+- Run vector and hybrid search queries
+- Use an LLM to generate grounded answers from retrieved search results
+
 Azure AI Search supports vector search, hybrid search, and integrated vectorization; Azure OpenAI supports embeddings and chat-completion models used in retrieval-augmented generation workflows.
 
 ---
